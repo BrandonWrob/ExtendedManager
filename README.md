@@ -10,6 +10,13 @@
 ![Frontend Coverage](.github/badges/coverage-frontend.svg)
 ![Frontend Branch Coverage](.github/badges/frontend-branches.svg)
 
+# Branch Management
+- Features should have their own unique branch off of the development branch
+- Each feature branch should be split into two sub-branches for frontend (FE) and backend (BE)
+- Ex: If you implement a Stock feature, the branching would be:
+  - main <- development <- stocks <- stocks_BE
+  - main <- development <- stocks <- stocks_FE
+
 # Setup Guide
 
 ## Eclipse Backend Setup
