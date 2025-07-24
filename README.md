@@ -23,7 +23,7 @@
 Import project into Eclipse
 1. Open Eclipse Switch to the Java Perspective (upper right corner).
 2. Open Git Repositories view: Window > Show View > Other > Git > Git Repositories
-3. Clone or Import repo there
+3. Clone the repo: Clone a Git Repo -> add clone URI and add your github credentials -> Click Next -> Click Next -> Optional: change local directory -> Click Finish
 4. Import the Maven Project
  - In Package Explorer select Import Projects or right click and select Import Projects from the context menu.
  - Select Maven > Existing Maven Projects.
