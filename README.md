@@ -12,7 +12,7 @@
 
 # Setup Guide
 
-## Eclipse Setup
+## Eclipse Backend Setup
 Import project into Eclipse
 1. Open Eclipse Switch to the Java Perspective (upper right corner).
 2. Open Git Repositories view: Window > Show View > Other > Git > Git Repositories
@@ -39,5 +39,32 @@ Update `application.properties` in `src/main/resources/` and `src/test/resources
 We will create a secret key that will be used for JWT authentication.  Think of a secret key phrase.  You'll want to encrypt it using SHA256 encryption.  You can use a tool like:  https://emn178.github.io/online-tools/sha256.html to generate the encrypted text.  Copy that into your `application.properties` file.
 
 6. Make sure your SQL database is set up and running
-7. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
-8. Run the project by right clicking on the project application and selecting Run As > Java Application.
+   - The database connection information is stored in ExtendedManager/wolf-cafe-backend/src/main/resource/application.properties.template
+   - Copy the file and paste it removing the .template from it, this will be your application.property file to setup github
+   - For the password, put your SQL DB password
+8. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
+9. Run the project by right clicking on the project application and selecting Run As > Java Application.
+
+## Eclipse Frontend Setup
+1. In the Git Repositories View, open the arrow next to your repo and then the Working Tree Folder
+2. Right click on coffee_maker_frontend and select Import Projects
+3. Click Finish
+4. Open Terminal View (Window > Show View > Terminal)
+5. Create the node_modules directory by typing the following in the terminal: % npm install
+6. Run the frontend by typing into the terminal: %npm run dev
+7. View in browser by typing: http://localhost:3000
+
+# Test Guide
+
+## Run Frontend Test
+- remove wolf-cafe-frontend/node_modules and wolf-cafe-frontend/package-lock.jspn.
+- In wolf-cafe-frontend, run npm install --save-dev vitest
+- run npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+- run npm run test to start tests.
+- if you want to run coverage run npm run test:coverage
+  
+## Run Backend Test
+You can run all of the tests at once by right clicking on the src/test/java folder and selecting Run As > JUnit.
+
+## Run Maven Test
+Right click on pom.xml and select Run As > 6 Maven Test
