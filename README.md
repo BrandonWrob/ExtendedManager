@@ -18,11 +18,11 @@ Import project into Eclipse
 2. Open Git Repositories view: Window > Show View > Other > Git > Git Repositories
 3. Clone or Import repo there
 4. Import the Maven Project
-- In Package Explorer select Import Projects or right click and select Import Projects from the context menu.
-- Select Maven > Existing Maven Projects.
-- Browse for the repository directory. The selected directory should end in [repo_name]/coffee_maker.
-- Click Import
-- The project should be in the Package Explorer
+ - In Package Explorer select Import Projects or right click and select Import Projects from the context menu.
+ - Select Maven > Existing Maven Projects.
+ - Browse for the repository directory. The selected directory should end in [repo_name]/coffee_maker.
+ - Click Import
+ - The project should be in the Package Explorer
 
 ## Install Lombok
 Lombok is a library that lets us use annotations to automatically generate getters, setters, and constructors.  For Lombok to work in Eclipse (and other IDEs like IntelliJ or VS Code), you need to set up Lombok with the IDE in addition to including in the pom.xml file.
