@@ -1,4 +1,4 @@
-# WolfCafe
+# ExtendedManager
 
 # WolfCafe Backend Statement/Branch Coverage
 
@@ -68,3 +68,7 @@ You can run all of the tests at once by right clicking on the src/test/java fold
 
 ## Run Maven Test
 Right click on pom.xml and select Run As > 6 Maven Test
+
+#Contributors
+- The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak (
+- The project is an extension of Store-Management-Application which was developed by Brandon Wroblewski (bnwroble), wtwalton, sadusum3, olweaver, and sesmith5.
