@@ -1,0 +1,235 @@
+/* src/components/AccessibilitySettingsComponent.css */
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Visual Mode Slider */
+.visual-mode-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Slider Track */
+.visual-mode-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  background: var(--slider-track-background);
+  border-radius: 10px;
+  border: 1px solid var(--slider-track-border);
+}
+
+.visual-mode-slider::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  background: var(--slider-track-background);
+  border-radius: 10px;
+  border: 1px solid var(--slider-track-border);
+}
+
+/* Slider Thumb */
+.visual-mode-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  appearance: none; /* Cross-browser support */
+  background: transparent;
+  border: none;
+  margin-top: -10px;
+  box-shadow: none; /* Remove shadows */
+}
+
+.visual-mode-slider::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+}
+
+/* Slider Thumb Icon */
+.slider-thumb-icon {
+  position: absolute;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFD700; /* Bright Yellow */
+  border-color: #FFC300; /* Slightly darker yellow for border */
+  border-radius: 50%;
+  border: 2px solid;
+  pointer-events: none;
+  transition: left 0.3s;
+  z-index: 3;
+}
+
+.slider-thumb-icon svg {
+  color: #ffffff; /* Default icon color */
+}
+
+/* High Contrast Mode: Slider Thumb Icon */
+body.high-contrast-mode .slider-thumb-icon {
+  background: black; /* White background for visibility */
+  border-color: #ffff00; /* Black border for contrast */
+}
+
+body.high-contrast-mode .slider-thumb-icon svg {
+  color: #ffff00; /* Black icon for visibility */
+}
+
+/* High Contrast Mode: Slider Thumb Icon */
+body.dark-mode .slider-thumb-icon {
+  background: #bb86fc; /* White background for visibility */
+  border-color: #000000; /* Black border for contrast */
+}
+
+body.dark-mode .slider-thumb-icon svg {
+  color: #ffffff; /* Black icon for visibility */
+}
+
+/* Slider Labels */
+.slider-labels .active-label {
+  color: var(--link-color);
+}
+
+.slider-label-text {
+  font-size: 12px;
+  margin-top: 5px;
+  color: var(--text-color);
+}
+
+/* Ensure consistent button height and padding */
+.colorblind-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px; /* Ensure consistent font size */
+  line-height: 1.5; /* Adjust line height for consistency */
+  height: 50px; /* Explicit height to prevent resizing */
+  padding: 0; /* Remove inconsistent padding */
+  margin: 0; /* Remove margin shifts */
+  text-align: center; /* Center the text */
+  box-sizing: border-box; /* Include padding and border in height */
+}
+
+/* Dark Mode */
+body.dark-mode .colorblind-button {
+  background-color: #1e3a8a; /* Ensure consistent background */
+  color: #ffffff; /* Light text color */
+  border: 1px solid #1e3a8a; /* Optional border for consistency */
+}
+
+/* High Contrast Mode */
+body.high-contrast-mode .colorblind-button {
+  background-color: #ffff00 !important; /* Yellow background */
+  color: #000000 !important; /* Black text */
+  border: 1px solid #ffff00 !important; /* Yellow border */
+}
+
+/* Ensure consistent hover states */
+.colorblind-button:hover {
+  background-color: #a9a9a9; /* Lighter gray for hover in normal mode */
+}
+
+body.dark-mode .colorblind-button:hover {
+  background-color: #162d6b; /* Darker blue for hover in dark mode */
+}
+
+body.high-contrast-mode .colorblind-button:hover {
+  background-color: #e5e500 !important; /* Slightly darker yellow for hover */
+}
+/* Modal Button Styles */
+.modal-footer .btn {
+  color: white; /* Ensure button text is black by default */
+}
+
+body.dark-mode .modal-footer .btn {
+  color: var(--button-text-color); /* e.g., #e0e0e0 */
+}
+
+body.high-contrast-mode .modal-footer .btn {
+  color: #000000 !important; /* Black text in High Contrast Mode */
+}
+
+body.high-contrast-mode .modal-footer .btn-primary,
+body.high-contrast-mode .modal-footer .btn-danger {
+  color: #000000 !important; /* Black text */
+  background-color: #ffff00 !important; /* Yellow background */
+  border-color: #ffff00 !important; /* Yellow border */
+}
+
+body.high-contrast-mode .modal-footer .btn-primary:hover,
+body.high-contrast-mode .modal-footer .btn-danger:hover {
+  background-color: #e5e500 !important; /* Slightly darker yellow for hover */
+  color: #000000 !important; /* Ensure text remains black */
+}
+
+/* Accessibility Button Styling */
+.accessibility-button {
+  background-color: var(--accessibility-button-background); /* Normal mode */
+  color: var(--accessibility-button-color); /* Text color */
+  border: 1px solid transparent; /* Subtle border for consistency */
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+  display: flex; /* Enable Flexbox */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  height: 100%; /* Ensure it takes full height of parent */
+}
+
+.accessibility-button:hover {
+  background-color: var(--accessibility-button-hover-background); /* Hover state */
+  color: var(--accessibility-button-color); /* Ensure color consistency */
+  border-color: var(--link-hover-color); /* Highlight border */
+}
+
+/* Dark Mode */
+body.dark-mode .accessibility-button {
+  background-color: #2a2a2a; /* Darker grey for visibility */
+  color: #e0e0e0; /* Light text color */
+}
+
+body.dark-mode .accessibility-button:hover {
+  background-color: #3a3a3a; /* Slightly lighter grey on hover */
+  color: #ffffff; /* White text */
+}
+
+/* High Contrast Mode */
+body.high-contrast-mode .accessibility-button {
+  background-color: #ffff00; /* Bright yellow for visibility */
+  color: #000000; /* Black text */
+  border-color: #000000; /* Ensure proper contrast */
+}
+
+body.high-contrast-mode .accessibility-button:hover {
+  background-color: #e5e500; /* Slightly darker yellow for hover */
+  color: #000000; /* Ensure text remains black */
+}
+
+body.dark-mode .modal-content { 
+  background-color: #1f1f1f; /* Dark background */ 
+  color: #e0e0e0; /* Light text */ }
+
+.modal-header-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-header-center .modal-title {
+    margin: 0 auto;
+}

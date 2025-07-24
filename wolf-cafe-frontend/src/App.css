@@ -1,0 +1,856 @@
+/* ============================================
+   Root Variables
+============================================ */
+:root {
+  /* General Colors */
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #007bff;
+  --link-hover-color: #cccccc;
+
+  /* Header */
+  --header-background: #343a40; /* Dark gray background */
+  --header-text-color: #ffffff; /* White text */
+
+  /* Body */
+  --body-background-color: #f9f9f9; /* Light gray for normal mode */
+
+  /* Recipes Container */
+  --recipes-background: #ffffff; /* White background */
+  --recipes-text-color: #000000; /* Black text */
+  --recipes-border: #ccc; /* Light gray border */
+  --recipes-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+  /* Form */
+  --form-background-normal: #ffffff; /* White for normal mode */
+  --form-background-dark: #2e2e2e; /* Darker gray for dark mode */
+  --form-background-high-contrast: #2e2e2e; /* Same as dark mode for high contrast */
+  --form-text-color-normal: #000000; /* Black for normal mode */
+  --form-text-color-dark: #e0e0e0; /* Light grey text for dark mode */
+  --form-text-color-high-contrast: #ffff00; /* Yellow text for high contrast */
+  --form-border-high-contrast: #ffff00; /* Yellow border for high contrast */
+
+  /* Input */
+  --input-background: #ffffff; /* White input background */
+  --input-text-color: #000000; /* Black text */
+  --input-border-color: #cccccc; /* Light gray border */
+  --input-placeholder-color-normal: #888888; /* Light gray for normal mode */
+  --input-placeholder-color-dark: #cccccc;   /* Lighter gray for dark mode */
+  --input-placeholder-color-high-contrast: #ffff00; /* Yellow for high contrast mode */
+
+  /* Buttons */
+  --primary-button-background: #007bff;
+  --primary-button-hover-background: #0056b3;
+  --primary-button-text-color: #ffffff;
+
+  --info-button-background: #1e90ff;
+  --info-button-hover-background: #187bcd;
+  --info-button-text-color: #ffffff;
+  
+  --danger-button-background: #dc3545;
+  --danger-button-hover-background: #c82333;
+  --danger-button-text-color: #ffffff;
+  
+  --accessibility-button-background: #343a40;
+  --accessibility-button-hover-background: #cccccc;
+  --accessibility-button-color: #ffffff;
+
+  /* Slider */
+  --slider-track-background: #ccc;
+  --slider-track-border: #aaa;
+  --slider-thumb-background: #007bff;
+  --slider-thumb-border: #0056b3;
+
+  /* Table */
+  --table-border-color: #ccc; /* Neutral border color */
+  --table-header-background: #343a40; /* Dark gray header */
+  --table-header-text-color: #ffffff;
+
+  /* Other */
+  --card-padding: 2rem;
+  
+    /* Secondary Button */
+  --secondary-button-background: #6c757d; /* Default gray */
+  --secondary-button-hover-background: #5a6268;
+  --secondary-button-text-color: #ffffff;
+
+  /* Warning Button */
+  --warning-button-background: #ffc107; /* Amber */
+  --warning-button-hover-background: #e0a800;
+  --warning-button-text-color: #212529;
+}
+
+/* ============================================
+   Mode Overrides
+============================================ */
+
+/* Dark Mode */
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --link-color: #bb86fc;
+  --link-hover-color: #ffffff;
+
+  --header-background: #1f1f1f;
+  --header-text-color: #e0e0e0;
+
+  --body-background-color: #1e1e1e;
+
+  --recipes-background: #1e1e1e;
+  --recipes-text-color: #e0e0e0;
+  --recipes-border: #444;
+  --recipes-box-shadow: none;
+
+  --form-background-normal: var(--form-background-dark);
+  --form-text-color-normal: var(--form-text-color-dark);
+  
+  --input-background: #333333;
+  --input-text-color: #e0e0e0;
+  --input-border-color: #555555;
+  
+  --primary-button-background: #1e3a8a;
+  --primary-button-hover-background: #162d6b;
+
+  --info-button-background: #1e3a8a;
+  --info-button-hover-background: #162d6b;
+
+  --danger-button-background: #8b0000;
+  --danger-button-hover-background: #6b0000;
+
+  --accessibility-button-background: #333333;
+  --accessibility-button-hover-background: #cccccc;
+  --accessibility-button-color: #e0e0e0;
+  
+    /* Secondary Button */
+  --secondary-button-background: #5a6268;
+  --secondary-button-hover-background: #454d55;
+  --secondary-button-text-color: #e0e0e0;
+
+  /* Warning Button */
+  --warning-button-background: #d39e00;
+  --warning-button-hover-background: #b38f00;
+  --warning-button-text-color: #212529;
+}
+
+/* High Contrast Mode */
+body.high-contrast-mode {
+  --background-color: #000000;
+  --text-color: #ffff00;
+  --link-color: #ffff00;
+  --link-hover-color: #ffffff;
+
+  --header-background: #343a40;
+  --header-text-color: #ffff00;
+
+  --body-background-color: #000000;
+
+  --recipes-background: #1e1e1e;
+  --recipes-text-color: #ffff00;
+  --recipes-border: #ffff00;
+  --recipes-box-shadow: none;
+
+  --form-background-normal: #2e2e2e;
+  --form-text-color-normal: #ffff00;
+  --form-border-high-contrast: #ffff00;
+  
+  --input-background: #000000;
+  --input-text-color: #ffff00;
+  --input-border-color: #ffff00;
+  
+  --primary-button-background: #ffff00;
+  --primary-button-hover-background: #e5e500;
+  --primary-button-text-color: #000000;
+
+  --info-button-background: #00008b;
+  --info-button-hover-background: #00007a;
+  --info-button-text-color: #ffff00;
+
+  --danger-button-background: #8b0000;
+  --danger-button-hover-background: #7a0000;
+  --danger-button-text-color: #ffff00;
+
+  --accessibility-button-background: #ffff00;
+  --accessibility-button-hover-background: #e5e500;
+  --accessibility-button-color: #000000;
+  
+  /* Secondary Button */
+  --secondary-button-background: #ffffff; /* White background */
+  --secondary-button-hover-background: #e6e6e6; /* Light gray on hover */
+  --secondary-button-text-color: #000000; /* Black text */
+
+  /* Warning Button */
+  --warning-button-background: #ffff00; /* Yellow background */
+  --warning-button-hover-background: #e5e500;
+  --warning-button-text-color: #000000; /* Black text */
+}
+
+/* Colorblind Modes */
+
+/* Tritanopia: Blue-Yellow Blindedness */
+body.colorblind-blue-yellow {
+  --background-color: #f4f4f4; /* Neutral light background */
+  --text-color: #212121; /* Dark gray text */
+  --link-color: #0055ff; /* Bright blue for links */
+  --link-hover-color: #003bb5; /* Darker blue for hover */
+  --table-border-color: #9e9e9e; /* Neutral gray for table borders */
+  --table-header-background: #d9d9d9; /* Light gray for headers */
+  --table-header-text-color: #212121; /* Dark gray for text */
+  --recipes-background: #f4f4f4; /* Neutral background */
+  --recipes-text-color: #212121; /* Dark gray */
+  --recipes-border: #9e9e9e; /* Neutral gray */
+  --recipes-box-shadow: none;
+  --body-background-color: #f4f4f4; /* Neutral light */
+  --input-background: #ffffff; /* White input background */
+  --input-text-color: #212121; /* Dark gray text */
+  --input-border-color: #cccccc; /* Light gray border */
+
+  --primary-button-background: #f66b00; /* Orange for buttons */
+  --primary-button-hover-background: #cc5800; /* Darker orange */
+  --primary-button-text-color: #ffffff; /* White text */
+
+  --info-button-background: #f66b00; /* Orange */
+  --info-button-hover-background: #cc5800; /* Darker orange */
+  --info-button-text-color: #ffffff; /* White text */
+
+  --danger-button-background: #800000; /* Dark red */
+  --danger-button-hover-background: #660000; /* Darker red */
+  --danger-button-text-color: #ffffff; /* White text */
+
+  --accessibility-button-background: #cccccc; /* Neutral gray */
+  --accessibility-button-hover-background: #999999; /* Darker gray */
+  --accessibility-button-color: #212121; /* Dark gray text */
+
+  --form-background-normal: #f4f4f4;
+  --form-text-color-normal: #212121;
+  
+  /* Secondary Button */
+  --secondary-button-background: #555555; /* Dark Gray */
+  --secondary-button-hover-background: #444444;
+  --secondary-button-text-color: #ffffff; /* White text */
+
+  /* Warning Button */
+  --warning-button-background: #ffdd57; /* Bright Yellow */
+  --warning-button-hover-background: #e6c347;
+  --warning-button-text-color: #212121; /* Dark Text */
+}
+
+/* Deuteranopia: Green-Blindness */
+body.colorblind-green-red {
+  --background-color: #f4f4f4; /* Neutral light background */
+  --text-color: #212121; /* Dark gray text */
+  --link-color: #ff5500; /* Bright orange for links */
+  --link-hover-color: #cc4400; /* Darker orange for hover */
+  --table-border-color: #9e9e9e; /* Neutral gray for table borders */
+  --table-header-background: #d9d9d9; /* Light gray for headers */
+  --table-header-text-color: #212121; /* Dark gray for text */
+  --recipes-background: #f4f4f4; /* Neutral background */
+  --recipes-text-color: #212121; /* Dark gray */
+  --recipes-border: #9e9e9e; /* Neutral gray */
+  --recipes-box-shadow: none;
+  --body-background-color: #f4f4f4; /* Neutral light */
+  --input-background: #ffffff; /* White input background */
+  --input-text-color: #212121; /* Dark gray text */
+  --input-border-color: #cccccc; /* Light gray border */
+
+  --primary-button-background: #0055ff; /* Bright blue for primary buttons */
+  --primary-button-hover-background: #003bb5; /* Darker blue */
+  --primary-button-text-color: #ffffff; /* White text */
+
+  --info-button-background: #800080; /* Purple for info buttons */
+  --info-button-hover-background: #660066; /* Darker purple */
+  --info-button-text-color: #ffffff; /* White text */
+
+  --danger-button-background: #800000; /* Dark red */
+  --danger-button-hover-background: #660000; /* Darker red */
+  --danger-button-text-color: #ffffff; /* White text */
+
+  --accessibility-button-background: #cccccc; /* Neutral gray */
+  --accessibility-button-hover-background: #999999; /* Darker gray */
+  --accessibility-button-color: #212121; /* Dark gray text */
+
+  --form-background_normal: #f4f4f4;
+  --form-text-color_normal: #212121;
+  
+    /* Secondary Button */
+  --secondary-button-background: #5a6268; /* Adjusted Gray */
+  --secondary-button-hover-background: #454d55;
+  --secondary-button-text-color: #ffffff; /* White text */
+
+  /* Warning Button */
+  --warning-button-background: #ffc107; /* Amber remains effective */
+  --warning-button-hover-background: #e0a800;
+  --warning-button-text-color: #212529; /* Dark Text */
+}
+
+/* Protanopia: Red Blindedeness */
+body.colorblind-red-green {
+  --background-color: #f4f4f4; /* Neutral light background */
+  --text-color: #212121; /* Dark gray text */
+  --link-color: #ff5500; /* Bright orange for links */
+  --link-hover-color: #cc4400; /* Darker orange for hover */
+  --table-border-color: #9e9e9e; /* Neutral gray for table borders */
+  --table-header-background: #d9d9d9; /* Light gray for headers */
+  --table-header-text-color: #212121; /* Dark gray for text */
+  --recipes-background: #f4f4f4; /* Neutral background */
+  --recipes-text-color: #212121; /* Dark gray */
+  --recipes-border: #9e9e9e; /* Neutral gray */
+  --recipes-box-shadow: none;
+  --body-background-color: #f4f4f4; /* Neutral light */
+  --input-background: #ffffff; /* White input background */
+  --input-text-color: #212121; /* Dark gray text */
+  --input-border-color: #cccccc; /* Light gray border */
+
+  --primary-button-background: #5500ff; /* Bright purple for buttons */
+  --primary-button-hover-background: #3d00b5; /* Darker purple */
+  --primary-button-text-color: #ffffff; /* White text */
+
+  --info-button-background: #5500ff; /* Bright purple */
+  --info-button-hover-background: #3d00b5; /* Darker purple */
+  --info-button-text-color: #ffffff; /* White text */
+
+  --danger-button-background: #800000; /* Dark red */
+  --danger-button-hover-background: #660000; /* Darker red */
+  --danger-button-text-color: #ffffff; /* White text */
+
+  --accessibility-button-background: #cccccc; /* Neutral gray */
+  --accessibility-button-hover-background: #999999; /* Darker gray */
+  --accessibility-button-color: #212121; /* Dark gray text */
+
+  --form-background-normal: #f4f4f4;
+  --form-text-color-normal: #212121;
+  
+    /* Secondary Button */
+  --secondary-button-background: #6c757d; /* Consistent Gray */
+  --secondary-button-hover-background: #5a6268;
+  --secondary-button-text-color: #ffffff; /* White text */
+
+  /* Warning Button */
+  --warning-button-background: #ffc107; /* Amber remains effective */
+  --warning-button-hover-background: #e0a800;
+  --warning-button-text-color: #212529; /* Dark Text */
+}
+
+/* ============================================
+   Global Styles
+============================================ */
+
+/* Body */
+body {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* ============================================
+   Header Styles
+============================================ */
+
+/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: var(--header-background);
+  color: var(--header-text-color);
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--header-background) !important;
+  color: var(--header-text-color) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1040;
+}
+
+.navbar .nav-link {
+  color: var(--header-text-color) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--link-hover-color) !important;
+}
+
+.navbar .navbar-brand {
+  color: var(--header-text-color) !important;
+}
+
+.navbar .navbar-brand:hover {
+  color: var(--link-hover-color) !important;
+}
+
+/* Navbar Navigation */
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically center items */
+}
+
+.navbar-nav .nav-item {
+  margin: 0.5rem 0;
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically center children */
+}
+
+.navbar-nav .nav-link {
+  text-decoration: none;
+  color: var(--header-text-color);
+  padding: 1rem;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--link-hover-color);
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ============================================
+   Button Styles
+============================================ */
+
+/* Base Button */
+button,
+.btn {
+  background-color: var(--primary-button-background);
+  color: var(--primary-button-text-color);
+  border-color: var(--primary-button-background);
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover,
+.btn:hover {
+  background-color: var(--primary-button-hover-background);
+  border-color: var(--primary-button-hover-background);
+}
+
+/* Info Button */
+.btn-info {
+  background-color: var(--info-button-background);
+  border-color: var(--info-button-background);
+  color: var(--info-button-text-color);
+}
+
+.btn-info:hover {
+  background-color: var(--info-button-hover-background);
+}
+
+/* Danger Button */
+.btn-danger {
+  background-color: var(--danger-button-background);
+  border-color: var(--danger-button-background);
+  color: var(--danger-button-text-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-button-hover-background);
+}
+
+/* Accessibility Button */
+.accessibility-button {
+  background-color: var(--accessibility-button-background);
+  color: var(--accessibility-button-color);
+  border: none;
+  padding: 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+  display: flex; /* Enable Flexbox */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  height: 40px; /* Makes sure that the consistent height */
+  width: 40px; /* Optional: make it square */
+  border-radius: 50%; /* Optional: make it circular */
+}
+
+.accessibility-button:hover {
+  background-color: var(--accessibility-button-hover-background);
+}
+
+.accessibility-button svg {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  transition: fill 0.3s;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: var(--secondary-button-background);
+  border-color: var(--secondary-button-background);
+  color: var(--secondary-button-text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-button-hover-background);
+  border-color: var(--secondary-button-hover-background);
+}
+
+/* Warning Button */
+.btn-warning {
+  background-color: var(--warning-button-background);
+  border-color: var(--warning-button-background);
+  color: var(--warning-button-text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: var(--warning-button-hover-background);
+  border-color: var(--warning-button-hover-background);
+}
+
+/* ============================================
+   Container Styles
+============================================ */
+
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Makes sure that the it fills the viewport height */
+  
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  
+}
+
+.content-wrapper {
+  width: 100%;
+}
+
+#main-content > * {
+  flex: 1;
+}
+
+/* Recipes and Other Containers */
+.create-order-container,
+.inventory-container,
+.recipes-container,
+.ingredient-container,
+.order-details-container,
+.view-order-container,
+.add-recipe-container,
+.order-history-container {
+  background-color: var(--recipes-background);
+  color: var(--recipes-text-color);
+  border: 1px solid var(--recipes-border);
+  box-shadow: var(--recipes-box-shadow);
+  padding: 1rem;
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  
+}
+
+
+/* ============================================
+   Form Styles
+============================================ */
+
+/* Inputs and Selects */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  border: 1px solid var(--input-border-color);
+  padding: 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.select {
+  appearance: none; /* Remove native styling */
+  position: relative;
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+}
+
+select {
+  direction: ltr;
+}
+
+/* Focus and Active States */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+.select:focus,
+textarea:focus {
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  border-color: var(--link-hover-color);
+  outline: none;
+}
+
+input[type="text"]:active,
+input[type="email"]:active,
+input[type="password"]:active,
+input[type="number"]:active,
+.select:active,
+textarea:active {
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  border-color: var(--link-hover-color);
+}
+
+/* Placeholder Colors */
+input::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder-color-normal);
+  opacity: 1; /* Makes sure that thes the color is not faded */
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--input-placeholder-color-dark);
+}
+
+body.high-contrast-mode input::placeholder,
+body.high-contrast-mode textarea::placeholder {
+  color: var(--input-placeholder-color-high-contrast);
+}
+
+/* Forms */
+form {
+  margin-bottom: 2rem; /* Consistent spacing */
+}
+
+/* Specific Forms */
+
+.create-order-form,
+.inventory-order-form1,
+.manage-user-form,
+.login-form,
+.tax-form,
+.add-recipe-form {
+  background-color: var(--form-background-normal);
+  color: var(--form-text-color_normal);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  margin: 1rem auto; /* Centers the form horizontally */
+  max-width: 600px;   /* Adjust as needed */
+}
+
+.inventory-order-form1-responsive {
+	overflow-x: auto;
+}
+.manage-user-form {
+  padding: 2rem;
+  margin-bottom: 2rem auto;
+}
+
+.manage-user-form h2 {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Mode Overrides for Forms */
+
+body.dark-mode .create-order-form,
+body.dark-mode .inventory-order-form1,
+body.dark-mode .manage-user-form,
+body.dark-mode .login-form,
+body.dark-mode .tax-form,
+body.dark-mode .add-recipe-form {
+  background-color: var(--form-background-dark);
+  color: var(--form-text-color-dark);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+
+body.high-contrast-mode .create-order-form,
+body.high-contrast-mode .inventory-order-form1,
+body.high-contrast-mode .manage-user-form,
+body.high-contrast-mode .login-form,
+body.high-contrast-mode .tax-form,
+body.high-contrast-mode .add-recipe-form {
+  background-color: var(--form-background-high-contrast);
+  color: var(--form-text-color_high_contrast);
+  border: 2px solid var(--form-border_high_contrast);
+  
+}
+
+.create-order-container {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.create-order-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    overflow-x: auto;
+}
+/* ============================================
+   Card Styles
+============================================ */
+.card {
+  padding: 2em;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.card-title {
+  padding: 2rem;
+}
+
+/* ============================================
+   Table Styles
+============================================ */
+
+/* Responsive Table */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Makes sure that thes no double borders */
+  border: 1px solid var(--table-border-color) !important; /* Applies outer table border */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--table-border-color) !important;
+  padding: 0.75rem;
+}
+
+.table th {
+  background-color: var(--table-header-background);
+  color: var(--table-header-text-color);
+}
+
+/* Custom History Table Styles */
+.custom-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--table-border-color) !important; /* Ensures border is applied */
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  
+}
+
+.custom-history-table th,
+.custom-history-table td {
+  border: 1px solid var(--table-border-color) !important;
+  padding: 0.75rem;
+}
+
+.custom-history-table th {
+  background-color: var(--table-header-background) !important;
+  color: var(--table-header-text-color) !important;
+}
+
+.custom-inventory-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes double borders */
+    min-width: 300px; /* Ensures the table doesn't shrink too much */
+}
+
+/* Table Headers */
+.custom-inventory-table th {
+    color: var(--recipes-text-color);;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Table Data Cells */
+.custom-inventory-table td {
+    padding: 12px;
+}
+/* ============================================
+   Responsive Navbar
+============================================ */
+
+/* Large screens */
+@media (min-width: 1200px) { /* Changed from 768px to 1200px */
+  .navbar-collapse {
+    position: static; /* Normal flow on larger screens */
+    max-height: none;
+    box-shadow: none;
+    display: flex !important;
+  }
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* Medium to small screens */
+@media (max-width: 1199.98px) { /* Changed from 767px to 1199.98px */
+  .navbar-collapse {
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Directly below the navbar */
+    left: 0;
+    background-color: var(--header-background);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional shadow for visibility */
+    z-index: 1050; /* Higher than .navbar to overlay */
+    /* Optional: Add smooth transition */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* When navbar-collapse has the 'show' class */
+  .navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Apply box-sizing globally */
+*, *::before, *::after {
+  box-sizing: border-box;
+}

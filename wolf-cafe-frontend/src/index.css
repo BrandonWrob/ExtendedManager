@@ -1,0 +1,180 @@
+/* src/index.css */
+
+@import './App.css';
+
+/* Root Styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+
+  /* Removed background-color and color to avoid conflicts with App.css */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default margin and padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Makes sure that the global color variables are applied */
+body {
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Specific overrides for modal content */
+.modal-content {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Accessibility-specific styles are handled in App.css */
+
+
+/* Body Styles */
+body {
+  margin: 0;
+  flex-direction: column; /* Makes sure that the content stacks vertically */
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Headings */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Button Styles are now handled in App.css based on modes */
+
+/* Logo Styles */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Keyframes */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card Styles */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.table {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.table th,
+.table td {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-color: var(--link-color);
+}
+
+/* Modal Customization */
+.modal-content {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Custom Styles for Slider Thumb Icon */
+.slider-thumb-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+}
+
+.visual-mode-slider {
+  width: 100%;
+  margin: 0;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 80%;
+}
+
+/* Slider Labels */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-label-text {
+  font-size: 0.9rem;
+}
+
+/* Active Label Styling */
+.active-label .slider-label-text {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .slider-container {
+    width: 100%;
+  }
+}
