@@ -1,0 +1,14 @@
+spring.application.name=wolf-cafe-backend
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/wolfcafe_test?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+# SHA256 encryption - https://emn178.github.io/online-tools/sha256.html
+app.jwt-secret=
+# Expiration time in milliseconds - 7 days
+app.jwt-expiration-milliseconds=604800000
+# Plain text password for default admin user
+app.admin-user-password=
