@@ -39,7 +39,7 @@ Update `application.properties` in `src/main/resources/` and `src/test/resources
 We will create a secret key that will be used for JWT authentication.  Think of a secret key phrase.  You'll want to encrypt it using SHA256 encryption.  You can use a tool like:  https://emn178.github.io/online-tools/sha256.html to generate the encrypted text.  Copy that into your `application.properties` file.
 
 6. Make sure your SQL database is set up and running
-   - The database connection information is stored in ExtendedManager/wolf-cafe-backend/src/main/resource/application.properties.template
+   - The database connection information is stored in ExtendedManager/wolf-cafe-backend/src/main/resource/application.properties.template and for the testcases in ExtendedManager/wolf-cafe-backend/src/test/resource/application.properties.template
    - Copy the file and paste it removing the .template from it, this will be your application.property file to setup github
    - For the password, put your SQL DB password
 8. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
