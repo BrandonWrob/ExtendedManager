@@ -1,0 +1,131 @@
+name: Build WolfCafe with Github Actions
+
+on: 
+  pull_request:
+    branches:
+      - '**'
+  push:
+    branches:
+      - '!main'
+      - '**'
+    paths-ignore:
+         - '.github/badges/**'
+
+jobs:
+  Build-WolfCafe:
+    runs-on: self-hosted
+    steps:
+      - name: Publish reminder
+        uses: actions/github-script@v4.0.2
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Reminder: Wait until Github Actions has finished running the build before merging this PR!'
+            })
+          
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        with:
+          ssh-key: '${{ secrets.SSH_PRIVATE_KEY }}'
+          ssh-known-hosts: 'github.ncsu.edu ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy5K6oZoBJ881aKKkon5MB016unAgciPVqNAlFY6PWtbUd7qJEwbJJAtxZcY43UmB8x4SW8yjqLGeQDEjioDkYY/Ml58Sh+gzAdeMeloGI2uwgVw77bGvcREAZ8s/lpx3D48XtvbS/IU4CgOO7RcMFsOH0y4jVX0LDdDxKLVXu/mUxnrqB8d/NtaZjOeI1b38LxFpfF6RVD7MBC9xhuZUcofVLQMhZq+OZ85xBxqb8UV5Ujp5hPbjO2uBDf3F1G0VLZko8W6LIiJaeBrEVl2UhQR2NDX5w7sUPg9D9mRWDQvIws1C887XeyF84cxkshFzuqbbtnGPVDxNpjMnDoWsN'
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls -la ${{ github.workspace }}
+
+      # Backend setup and build
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'maven'
+          cache-dependency-path: 'wolf-cafe-backend/pom.xml'
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Copy config files for Spring Boot src
+        run: cp wolf-cafe-backend/src/main/resources/application.properties.template wolf-cafe-backend/src/main/resources/application.properties
+        
+      - name: Copy config files for Spring Boot test
+        run: cp wolf-cafe-backend/src/test/resources/application.properties.template wolf-cafe-backend/src/test/resources/application.properties
+        
+      - name: Edit src config file (do not change this!)
+        run: sed -i 's/localhost:3306/docker/g' wolf-cafe-backend/src/main/resources/application.properties && sed -i 's/password=/password= ${{ secrets.TEST_DB_PW }}/g' wolf-cafe-backend/src/main/resources/application.properties && sed -i 's/app.jwt-secret=/app.jwt-secret= ${{ secrets.JWT_SECRET }}/g' wolf-cafe-backend/src/main/resources/application.properties && sed -i 's/app.admin-user-password=/app.admin-user-password= ${{ secrets.ADMIN_PASSWORD }}/g' wolf-cafe-backend/src/main/resources/application.properties
+
+      - name: Edit test config file (do not change this!)
+        run: sed -i 's/localhost:3306/docker/g' wolf-cafe-backend/src/test/resources/application.properties && sed -i 's/password=/password= ${{ secrets.TEST_DB_PW }}/g' wolf-cafe-backend/src/test/resources/application.properties && sed -i 's/app.jwt-secret=/app.jwt-secret= ${{ secrets.JWT_SECRET }}/g' wolf-cafe-backend/src/test/resources/application.properties && sed -i 's/app.admin-user-password=/app.admin-user-password= ${{ secrets.ADMIN_PASSWORD }}/g' wolf-cafe-backend/src/test/resources/application.properties
+
+      - name: Checking config files src
+        run: cat wolf-cafe-backend/src/main/resources/application.properties
+        
+      - name: Checking config files test
+        run: cat wolf-cafe-backend/src/test/resources/application.properties
+          
+      - name: Clean up Docker containers
+        run: (docker stop $(docker ps -a -q) || true) && (docker rm $(docker ps -a -q) || true)
+            
+      - name: Set up MariaDB
+        run: docker run -p 3306:3306 --name wolfcafe_test -e MYSQL_ROOT_PASSWORD=${{ secrets.TEST_DB_PW }} -d docker.io/library/mariadb:10.4
+          
+      - name: Wait for container to be active
+        run: sleep 15s      
+         
+      - name: Check to make sure DB is active
+        run: mysql -uroot -h docker -p${{ secrets.TEST_DB_PW }} -e 'SELECT version()'
+      
+      - name: Build CoffeeMaker with Maven
+        run: cd wolf-cafe-backend && mvn --batch-mode --update-snapshots clean test checkstyle:checkstyle verify jacoco:report
+
+      - name: List JaCoCo report files
+        run: ls -la wolf-cafe-backend/target/site/jacoco-ut/
+      
+     # Generate backend coverage badges
+      - name: Generate Backend Coverage Badges
+        run: |
+          python3 .github/generate_badge.py wolf-cafe-backend/target/site/jacoco-ut/jacoco.csv .github/badges jacoco-backend.svg jacoco-branches.svg true true quiet 0.7 0.5 false false "100 90 80 70 60" "#4c1 #97ca00 #a4a61d #dfb317 #fe7d37 #e05d44"
+
+      # Frontend setup and tests
+      - name: Set up Node.js for frontend testing
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+          
+      - name: Install frontend dependencies
+        working-directory: wolf-cafe-frontend
+        run: npm install
+        
+      - name: Run frontend tests with coverage
+        working-directory: wolf-cafe-frontend
+        run: npm run test:coverage
+
+      # Generate frontend coverage badge
+      - name: Generate Frontend Coverage Badge
+        run: |
+          python3 .github/generate_lcov_badge.py wolf-cafe-frontend/coverage/lcov.info .github/badges coverage-frontend.svg frontend-branches.svg
+
+      # Commit coverage badges
+      - name: Commit coverage badges
+        if: github.event_name == 'push'
+        run: |
+          git add .github/badges/
+          git commit -m 'Add coverage badges' || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref }}
+
+
+      - name: Run frontend build
+        working-directory: wolf-cafe-frontend
+        run: npm run build
+
+      - name: Publish Test Report
+        if: ${{ always() }}
+        uses: engr-csc326-itrust/action-surefire-report@v1.02
