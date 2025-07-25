@@ -19,6 +19,18 @@
 
 # Setup Guide
 
+## Environment Setup
+1. Install jdk-17 and Apache-Maven (make sure to test in terminal that they are local)
+2. Add Maven certificate to your device
+  - Go to https://repo.maven.apache.org and click the lock icon in URL bar
+  - Select Certificate (Valid) and the certificate will pop up
+  - Go to the details tab and click export in lower right corner
+  - Dwnload file in Base-64 encoded and save it where it can be globally accessed
+  - Add it to your jdk path using the command below: [note it uses my file locations, change it to your own]
+    "C:\Program Files\Java\jdk-21\bin\keytool.exe" -import -trustcacerts -alias mavenRepo -file "C:\Users\[your username]\repo.maven.apache.org.crt" -cacerts -storepass changeit
+  - Clean maven cache using: mvn dependency:purge-local-repository
+  - Run maven build again: mvn clean install
+
 ## Eclipse Backend Setup
 Import project into Eclipse
 1. Open Eclipse Switch to the Java Perspective (upper right corner).
