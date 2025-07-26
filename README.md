@@ -16,9 +16,10 @@
 - [Contributors](#contributors)
 
 # Backend Design
+- Note: Files for designs can be found under the Diagram folder.
 
 ## Entity/Dto/Mapper/Repositories
-
+![Entity/Dto/Mapper/Repositories](diagrams/Entity_DTO_Mapper)
 ## Service/Implementation/Controller
 
 # API Design
