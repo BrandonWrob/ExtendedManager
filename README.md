@@ -2,7 +2,9 @@
 
 ### 📑 Table of Contents
 - [Backend Design](#backend-design)
-  -[Entity/Dto/Mapper/Repositories](#entity/dto/mapper/repositories)
+  - [Entity/Dto/Mapper/Repositories](#entitydtomapperrepositories)
+  - [Service and Implementation](#service-and-implementation)
+  - [Controller](#controller)
 - [Testing and Coverage](#testing-and-coverage)
 - [Branch Management](#branch-management)
 - [Setup Guide](#setup-guide)
