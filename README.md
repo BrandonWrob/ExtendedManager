@@ -18,13 +18,13 @@
 - Note: Files for designs can be found under the Diagram folder.
 
 ## Entity / DTOs / Mapper / Repo
-![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper_Repo.png)
-![Entity/Dto/Mapper](Diagrams/SQL_Tables.png)
+![Image_Failed](Diagrams/Entity_DTO_Mapper_Repo.png)
+![Image_Failed](Diagrams/SQL_Tables.png)
 
 ## Config / Security / Exception
 
 ## Service / Implementation / Controller / APIs
-
+![Image_Failed](Diagrams/Service_Impl_Controller.png)
 # Frontend Design
 
 # Testing and Coverage
