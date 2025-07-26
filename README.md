@@ -31,18 +31,6 @@
 
 # Testing and Coverage
 
-### Run Frontend Test
-- remove wolf-cafe-frontend/node_modules and wolf-cafe-frontend/package-lock.jspn.
-- In wolf-cafe-frontend, run npm install --save-dev vitest
-- run npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
-- run npm run test to start tests.
-- if you want to run coverage run npm run test:coverage
-  
-## Run Backend Test
-You can run all of the tests at once by right clicking on the src/test/java folder and selecting Run As > JUnit.
-
-## Run Maven Test
-Right click on pom.xml and select Run As > 6 Maven Test
 ### WolfCafe Backend Statement / Branch Coverage
 
 ![Backend Coverage](.github/badges/jacoco-backend.svg)
@@ -52,6 +40,19 @@ Right click on pom.xml and select Run As > 6 Maven Test
 
 ![Frontend Coverage](.github/badges/coverage-frontend.svg)
 ![Frontend Branch Coverage](.github/badges/frontend-branches.svg)
+
+### Run Frontend Test
+- remove wolf-cafe-frontend/node_modules and wolf-cafe-frontend/package-lock.jspn.
+- In wolf-cafe-frontend, run npm install --save-dev vitest
+- run npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+- run npm run test to start tests.
+- if you want to run coverage run npm run test:coverage
+  
+### Run Backend Test
+You can run all of the tests at once by right clicking on the src/test/java folder and selecting Run As > JUnit.
+
+### Run Maven Test
+Right click on pom.xml and select Run As > Maven Test
 
 # Branch Management
 - Features should have their own unique branch off of the development branch
