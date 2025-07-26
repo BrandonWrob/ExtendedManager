@@ -1,5 +1,19 @@
 # ExtendedManager
 
+### 📑 Table of Contents
+- [Backend Statement/Branch Coverage](#wolfcafe-backend-statementbranch-coverage)
+- [Frontend Statement/Branch Coverage](#wolfcafe-frontend-statementbranch-coverage)
+- [Branch Management](#branch-management)
+- [Setup Guide](#setup-guide)
+  - [Environment Setup](#environment-setup)
+  - [Eclipse Backend Setup](#eclipse-backend-setup)
+  - [Eclipse Frontend Setup](#eclipse-frontend-setup)
+- [Test Guide](#test-guide)
+  - [Run Frontend Test](#run-frontend-test)
+  - [Run Backend Test](#run-backend-test)
+  - [Run Maven Test](#run-maven-test)
+- [Contributors](#contributors)
+
 # WolfCafe Backend Statement/Branch Coverage
 
 ![Backend Coverage](.github/badges/jacoco-backend.svg)
