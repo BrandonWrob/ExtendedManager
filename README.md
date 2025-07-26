@@ -20,6 +20,7 @@
 
 ## Entity/Dto/Mapper
 ![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper.png)
+![Entity/Dto/Mapper](Diagrams/SQL_Tables.png)
 
 ## Repositories/Service/Implementation/Controller
 
