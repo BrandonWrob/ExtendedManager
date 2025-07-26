@@ -2,8 +2,8 @@
 
 ### 📑 Table of Contents
 - [Backend Design](#backend-design)
-  - [Entity/Dto/Mapper/Repositories](#entitydtomapperrepositories)
-  - [Service/Implementation/Controller](#service-implementation-controller)
+  - [Entity/Dto/Mapper](#entitydtomapperrepositories)
+  - [Repositories/Service/Implementation/Controller](#repositories-service-implementation-controller)
   - [Controller](#controller)
 - [API Design](#api-design)
 - [Frontend Design](#api-design)
@@ -18,9 +18,10 @@
 # Backend Design
 - Note: Files for designs can be found under the Diagram folder.
 
-## Entity/Dto/Mapper/Repositories
-![Entity/Dto/Mapper/Repositories](Diagrams/Entity_DTO_Mapper.png)
-## Service/Implementation/Controller
+## Entity/Dto/Mapper
+![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper.png)
+
+## Repositories/Service/Implementation/Controller
 
 # API Design
 - Note: API Endpoint Diagram
