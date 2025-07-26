@@ -22,6 +22,7 @@
 ![Image_Failed](Diagrams/SQL_Tables.png)
 
 ## Config / Security / Exception
+![Image_Failed](Diagrams/Config_Security_Exception.png)
 
 ## Service / Implementation / Controller / APIs
 ![Image_Failed](Diagrams/Service_Impl_Controller.png)
