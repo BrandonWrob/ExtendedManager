@@ -5,7 +5,6 @@
   - [Entity / DTOs / Mapper / Repo](#entity--dtos--mapper--repo)
   - [Config / Security / Exception](#config--security--exception)
   - [Service / Implementation / Controller / APIs](#service--implementation--controller--apis)
-- [Frontend Design](#frontend-design)
 - [Testing and Coverage](#testing-and-coverage)
 - [Branch Management](#branch-management)
 - [Setup Guide](#setup-guide)
@@ -26,8 +25,6 @@
 
 ## Service / Implementation / Controller / APIs
 ![Image_Failed](Diagrams/Service_Impl_Controller.png)
-
-# Frontend Design
 
 # Testing and Coverage
 
