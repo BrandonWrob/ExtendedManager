@@ -46,20 +46,13 @@ Lombok is a library that lets us use annotations to automatically generate gette
 
 Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok.org/setup/eclipse).  Make sure you download the laste version of Lombok from [Maven Repository](https://mvnrepository.com/artifact/org.projectlombok/lombok) as a jar file.
 
-Update `application.properties` in `src/main/resources/` and `src/test/resources/`.
-
-  * Set `spring.datasource.password` to your local MySQL password`
-  * Set `app.jwt-secret` as described below.
-  * Set `app.admin-user-password` to a plain text string that you will use as the admin password.
-  
-### Set `app.jwt-secret`
-
-We will create a secret key that will be used for JWT authentication.  Think of a secret key phrase.  You'll want to encrypt it using SHA256 encryption.  You can use a tool like:  https://emn178.github.io/online-tools/sha256.html to generate the encrypted text.  Copy that into your `application.properties` file.
 6. Install Node.js
-7. Make sure your SQL database is set up and running
-   - The database connection information is stored in ExtendedManager/wolf-cafe-backend/src/main/resource/application.properties.template and for the testcases in ExtendedManager/wolf-cafe-backend/src/test/resource/application.properties.template
-   - Copy the file and paste it removing the .template from it, this will be your application.property file to setup github
-   - For the password, put your SQL DB password
+7.  Set up SQL: Make sure your SQL database is set up and running
+  * In src/main/resource, make a copy of application.properties.template named application.properties [NOTE: the .gitignore stops it from being pushed to github for saftey measures] and in the files do the following:
+  * Set `spring.datasource.password` to your local MySQL password`
+  * Set `app.jwt-secret` by encrypting any phrase using SHA256 into app.jwt-secret, tool I used to generate it was https://emn178.github.io/online-tools/sha256.html
+  * Set `app.admin-user-password` to a plain text string that you will use as the admin password.
+
 8. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
 9. Run the project by right clicking on the project application and selecting Run As > Java Application.
 
