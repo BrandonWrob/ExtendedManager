@@ -1,13 +1,23 @@
 # ExtendedManager
 
 ### 📑 Table of Contents
-- [Testing and Coverage](#Coverage)
+- [Backend Design](#backend-design)
+  -[Entity/Dto/Mapper/Repositories](#entity/dto/mapper/repositories)
+- [Testing and Coverage](#testing-and-coverage)
 - [Branch Management](#branch-management)
 - [Setup Guide](#setup-guide)
   - [Environment Setup](#environment-setup)
   - [Eclipse Backend Setup](#eclipse-backend-setup)
   - [Eclipse Frontend Setup](#eclipse-frontend-setup)
 - [Contributors](#contributors)
+
+# Backend Design
+
+## Entity/Dto/Mapper/Repositories
+
+## Service and Implementation
+
+## Controller
 
 # Testing and Coverage
 
