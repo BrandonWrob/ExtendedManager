@@ -1,0 +1,214 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>bg=white
+</help_text><element><id>UMLClass</id><coordinates><x>152</x><y>592</y><w>296</w><h>112</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+OrderService
+--
++ makeOrder(username: String, orderDto: OrderDto): OrderDto
++ getOrders(): List&lt;OrderDto&gt;
++ fulfillOrder(id: Long): OrderDto
++ getOrderById(id: Long): OrderDto
++ pickupOrder(username: String, id: Long): OrderDto
++ getOrdersByCustomer(username: String): List&lt;OrderDto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>456</y><w>304</w><h>120</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+AuthService
+--
++ getUsername(token:String):String
++ register(registerDto: RegisterDto, authorized: Boolean): String
++ login(loginDto: LoginDto): JwtAuthResponse
++ deleteUserById(id: Long): void
++ editUser(id: Long, registerDto: RegisterDto): String
++ getAllUsers(): List&lt;User&gt;
++ getUsername(token: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>152</x><y>144</y><w>1448</w><h>304</h></coordinates><panel_attributes>wolfcafe.service.impl
+--
+bg=orange
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>144</x><y>120</y><w>1464</w><h>600</h></coordinates><panel_attributes>wolfcafe.service
+--
+bg=blue
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>600</y><w>392</w><h>112</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+IngredientService
+--
++ createIngredient(ingredientDto: IngredientDto): IngredientDto
++ getIngredientById(ingredientId: Long): IngredientDto
++ getAllIngredients(): List&lt;IngredientDto&gt;
++ deleteIngredient(ingredientId: Long): void
++ deleteAllIngredients(): void
++ updateIngredient(ingredientId: Long, ingredientDto: IngredientDto): IngredientDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>464</x><y>456</y><w>392</w><h>112</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+InventoryService
+--
++ createInventory(inventoryDto: InventoryDto): InventoryDto
++ getInventory(): InventoryDto
++ getInventoryIngredient(name: String): Ingredient
++ updateInventory(inventoryDto: InventoryDto): InventoryDto
++ isDuplicateName(inventoryDto: InventoryDto, ingredientName: String): boolean
++ checkIngredient(recIngredient: Ingredient): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>872</x><y>456</y><w>400</w><h>96</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+OrderHistoryService
+--
++ makeOrderHistory(usernameOrEmail: String, orderDto: OrderDto): OrderHistoryDto
++ updateOrderHistoryStatus(id: Long): boolean
++ getOrderHistory(): List&lt;OrderHistory&gt;
++ getUserHistory(username: String): List&lt;OrderHistory&gt;
++ getHistoryById(id: Long): OrderHistory</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1280</x><y>568</y><w>304</w><h>120</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+RecipeService
+--
++ createRecipe(recipeDto: RecipeDto): RecipeDto
++ getRecipeById(recipeId: Long): RecipeDto
++ getRecipeByName(recipeName: String): RecipeDto
++ isDuplicateName(recipeName: String): boolean
++ getAllRecipes(): List&lt;RecipeDto&gt;
++ updateRecipe(recipeId: Long, recipeDto: RecipeDto): RecipeDto
++ deleteRecipe(recipeId: Long): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1424</x><y>464</y><w>168</w><h>72</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+TaxService
+--
++ calcTax(preTax: Double): Double
++ setTax(rate: Double): TaxDto
++ getTax(): TaxDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>472</x><y>288</y><w>392</w><h>136</h></coordinates><panel_attributes>IngredientServiceImpl
+--
+- ingredientRepository: IngredientRepository
+- inventoryRepository: InventoryRepository
+- inventoryService: InventoryService
+--
++ createIngredient(ingredientDto: IngredientDto): IngredientDto
++ getIngredientById(ingredientId: Long): IngredientDto
++ getAllIngredients(): List&lt;IngredientDto&gt;
++ deleteIngredient(ingredientId: Long): void
++ deleteAllIngredients(): void
++ updateIngredient(ingredientId: Long, ingredientDto: IngredientDto): IngredientDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>168</y><w>304</w><h>168</h></coordinates><panel_attributes>AuthServiceImpl
+--
+- userRepository: UserRepository
+- roleRepository: RoleRepository
+- passwordEncoder: PasswordEncoder
+- authenticationManager: AuthenticationManager
+- jwtTokenProvider: JwtTokenProvider
+--
++ getUsername(token:String):String
++ register(registerDto: RegisterDto, authorized: Boolean): String
++ login(loginDto: LoginDto): JwtAuthResponse
++ deleteUserById(id: Long): void
++ editUser(id: Long, registerDto: RegisterDto): String
++ getAllUsers(): List&lt;User&gt;
++ getUsername(token: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>472</x><y>168</y><w>392</w><h>112</h></coordinates><panel_attributes>InventoryServiceImpl
+--
+- inventoryRepository:InventoryRepository
+--
++ createInventory(inventoryDto: InventoryDto): InventoryDto
++ getInventory(): InventoryDto
++ getInventoryIngredient(name: String): Ingredient
++ updateInventory(inventoryDto: InventoryDto): InventoryDto
++ isDuplicateName(inventoryDto: InventoryDto, ingredientName: String): boolean
++ checkIngredient(recIngredient: Ingredient): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>168</y><w>400</w><h>128</h></coordinates><panel_attributes>OrderHistoryServiceImpl
+--
+- taxService: TaxService
+- orderHistoryRepository: OrderHistoryRepository
+- userRepository: UserRepository
+--
++ makeOrderHistory(usernameOrEmail: String, orderDto: OrderDto): OrderHistoryDto
++ updateOrderHistoryStatus(id: Long): boolean
++ getOrderHistory(): List&lt;OrderHistory&gt;
++ getUserHistory(username: String): List&lt;OrderHistory&gt;
++ getHistoryById(id: Long): OrderHistory</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>304</y><w>296</w><h>136</h></coordinates><panel_attributes>OrderServiceImpl
+--
+- userRepository:UserRepository
+- inventoryRepository:InventoryRepository
+- orderRepository:OrderRepository
+--
++ makeOrder(username: String, orderDto: OrderDto): OrderDto
++ getOrders(): List&lt;OrderDto&gt;
++ fulfillOrder(id: Long): OrderDto
++ getOrderById(id: Long): OrderDto
++ pickupOrder(username: String, id: Long): OrderDto
++ getOrdersByCustomer(username: String): List&lt;OrderDto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1288</x><y>280</y><w>304</w><h>152</h></coordinates><panel_attributes>RecipeServiceImpl
+--
+- recipeRepository: RecipeRepository
+- ingredientService: IngredientService
+- inventoryService: InventoryService
+--
++ createRecipe(recipeDto: RecipeDto): RecipeDto
++ getRecipeById(recipeId: Long): RecipeDto
++ getRecipeByName(recipeName: String): RecipeDto
++ isDuplicateName(recipeName: String): boolean
++ getAllRecipes(): List&lt;RecipeDto&gt;
++ updateRecipe(recipeId: Long, recipeDto: RecipeDto): RecipeDto
++ deleteRecipe(recipeId: Long): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1296</x><y>176</y><w>208</w><h>88</h></coordinates><panel_attributes>TaxServiceImpl
+--
+- taxRepository: TaxRepository
+- taxMapper: TaxMapper = new TaxMapper()
+--
++ calcTax(preTax: Double): Double
++ setTax(rate: Double): TaxDto
++ getTax(): TaxDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>560</y><w>168</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;190;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1264</x><y>464</y><w>176</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>200;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>560</y><w>448</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1024</x><y>608</y><w>272</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;50;320;10</additional_attributes></element><element><id>Relation</id><coordinates><x>232</x><y>328</y><w>72</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>70;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>432</y><w>464</w><h>176</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>560;10;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>584</x><y>272</y><w>40</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;30;230</additional_attributes></element><element><id>Relation</id><coordinates><x>848</x><y>416</y><w>64</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;60;230</additional_attributes></element><element><id>Relation</id><coordinates><x>1208</x><y>288</y><w>48</w><h>184</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;40;210</additional_attributes></element><element><id>Relation</id><coordinates><x>1488</x><y>256</y><w>112</w><h>224</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;120;260</additional_attributes></element><element><id>Relation</id><coordinates><x>1344</x><y>424</y><w>48</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>40;10;10;180</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>144</x><y>728</y><w>1464</w><h>296</h></coordinates><panel_attributes>wolfcafe.controller
+--
+bg=#800080
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>896</y><w>328</w><h>120</h></coordinates><panel_attributes>AuthController
+--
+- authService: AuthService
+--
++ getAllUsers(): ResponseEntity&lt;List&lt;User&gt;&gt;
++ register(registerDto: RegisterDto): ResponseEntity&lt;String&gt;
++ adminRegister(registerDto: RegisterDto): ResponseEntity&lt;String&gt;
++ login(loginDto: LoginDto): ResponseEntity&lt;JwtAuthResponse&gt;
++ deleteUser(id: Long): ResponseEntity&lt;String&gt;
++ editUser(id: Long, registerDto: RegisterDto): ResponseEntity&lt;String&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>904</x><y>752</y><w>376</w><h>88</h></coordinates><panel_attributes>IngredientController
+--
+- ingredientService: IngredientService
+--
++ createIngredient(ingredientDto: IngredientDto): ResponseEntity&lt;IngredientDto&gt;
++ getIngredientbyId(id: Long): ResponseEntity&lt;IngredientDto&gt;
++ getIngredients(): List&lt;IngredientDto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>488</x><y>904</y><w>368</w><h>80</h></coordinates><panel_attributes>InventoryController
+--
+- inventoryService: InventoryService
+--
++ getInventory(): ResponseEntity&lt;InventoryDto&gt;
++ updateInventory(inventoryDto: InventoryDto): ResponseEntity&lt;InventoryDto&gt;
++ createInventory(inventoryDto: InventoryDto): ResponseEntity&lt;InventoryDto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>152</x><y>752</y><w>360</w><h>136</h></coordinates><panel_attributes>OrderController
+--
+- authService: AuthService
+- recipeService: RecipeService
+- orderService: OrderService
+--
++ makeOrder(token: String, orderDto: OrderDto): ResponseEntity&lt;OrderDto&gt;
++ getOrders(): ResponseEntity&lt;List&lt;OrderDto&gt;&gt;
++ fulfillOrder(id: Long): ResponseEntity&lt;OrderDto&gt;
++ getOrder(id: Long): ResponseEntity&lt;OrderDto&gt;
++ pickupOrder(token: String, id: Long): ResponseEntity&lt;OrderDto&gt;
++ viewOrdersStatus(token: String): ResponseEntity&lt;List&lt;OrderDto&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>536</x><y>752</y><w>360</w><h>136</h></coordinates><panel_attributes>OrderHistoryController
+--
+- authService: AuthService
+- recipeService: RecipeService
+- orderHistoryService: OrderHistoryService
+- userRepository: UserRepository
+--
++ makeOrderHistory(token: String, orderDto: OrderDto): ResponseEntity&lt;?&gt;
++ updateOrderHistoryStatus(id: Long, token: String): ResponseEntity&lt;?&gt;
++ getOrderHistory(): ResponseEntity&lt;List&lt;OrderHistory&gt;&gt;
++ getHistoryById(id: Long, token: String): ResponseEntity&lt;?&gt;
++ getUserHistory(usernameOrEmail: String, token: String): ResponseEntity&lt;?&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>856</y><w>384</w><h>104</h></coordinates><panel_attributes>RecipeController
+--
+- recipeService: RecipeService
+--
++ getRecipes(): List&lt;RecipeDto&gt;
++ getRecipe(name: String): ResponseEntity&lt;RecipeDto&gt;
++ createRecipe(recipeDto: RecipeDto): ResponseEntity&lt;RecipeDto&gt;
++ deleteRecipe(recipeId: Long): ResponseEntity&lt;String&gt;
++ updateRecipe(recipeId: Long, recipeDto: RecipeDto): ResponseEntity&lt;RecipeDto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1360</x><y>768</y><w>240</w><h>80</h></coordinates><panel_attributes>TaxController
+--
+- taxService: TaxService
+--
++ calcTax(preTax: Double): ResponseEntity&lt;Double&gt;
++ getTax(): ResponseEntity&lt;TaxDto&gt;
++ setTax(rate: Double): ResponseEntity&lt;?&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>664</y><w>816</w><h>104</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>1000;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>568</y><w>56</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;50;230</additional_attributes></element><element><id>Relation</id><coordinates><x>248</x><y>696</y><w>64</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>60;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>560</y><w>128</w><h>208</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;140;240</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>544</y><w>312</w><h>224</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>370;10;10;260</additional_attributes></element><element><id>Relation</id><coordinates><x>864</x><y>680</y><w>432</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>520;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1024</x><y>704</y><w>80</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;80;60</additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>568</y><w>80</w><h>360</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;80;430</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>560</y><w>48</w><h>360</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>40;10;10;430</additional_attributes></element><element><id>Relation</id><coordinates><x>1296</x><y>680</y><w>40</w><h>192</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>30;10;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>1584</x><y>528</y><w>24</w><h>256</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>10;10;10;300</additional_attributes></element></diagram>
