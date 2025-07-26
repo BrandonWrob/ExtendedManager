@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import edu.ncsu.csc326.wolfcafe.entity.Order;
+import wolfcafe.entity.Order;
 
 /**
  * OrderRepository for working with DB through JpaRepository

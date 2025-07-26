@@ -1,10 +1,10 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
 
 /**
  * interface for dealing with orders

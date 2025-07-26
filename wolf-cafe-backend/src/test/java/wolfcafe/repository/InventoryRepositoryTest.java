@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,8 +13,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.Inventory;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.Inventory;
 import jakarta.persistence.EntityManager;
 
 /**

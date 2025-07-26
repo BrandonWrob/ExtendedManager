@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,25 +26,25 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.dto.LoginDto;
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.dto.RegisterDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.OrderHistory;
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.repository.OrderHistoryRepository;
-import edu.ncsu.csc326.wolfcafe.repository.RecipeRepository;
-import edu.ncsu.csc326.wolfcafe.repository.TaxRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
-import edu.ncsu.csc326.wolfcafe.service.AuthService;
-import edu.ncsu.csc326.wolfcafe.service.IngredientService;
-import edu.ncsu.csc326.wolfcafe.service.OrderHistoryService;
-import edu.ncsu.csc326.wolfcafe.service.RecipeService;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.dto.LoginDto;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.dto.RegisterDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.OrderHistory;
+import wolfcafe.entity.Tax;
+import wolfcafe.entity.User;
+import wolfcafe.repository.OrderHistoryRepository;
+import wolfcafe.repository.RecipeRepository;
+import wolfcafe.repository.TaxRepository;
+import wolfcafe.repository.UserRepository;
+import wolfcafe.service.AuthService;
+import wolfcafe.service.IngredientService;
+import wolfcafe.service.OrderHistoryService;
+import wolfcafe.service.RecipeService;
 import jakarta.persistence.EntityManager;
 
 /**

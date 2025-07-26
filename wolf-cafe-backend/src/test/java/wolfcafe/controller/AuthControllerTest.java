@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -20,12 +20,12 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.LoginDto;
-import edu.ncsu.csc326.wolfcafe.dto.RegisterDto;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.repository.RoleRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.LoginDto;
+import wolfcafe.dto.RegisterDto;
+import wolfcafe.entity.User;
+import wolfcafe.repository.RoleRepository;
+import wolfcafe.repository.UserRepository;
 
 /**
  * Tests AuthController.

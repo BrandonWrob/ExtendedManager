@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.dto;
+package wolfcafe.dto;
 
 /**
  * Used to transfer Ingredient data between the client and server. This class

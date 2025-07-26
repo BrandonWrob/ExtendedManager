@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.security;
+package wolfcafe.security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
+import wolfcafe.entity.User;
+import wolfcafe.repository.UserRepository;
 
 import java.util.Set;
 import java.util.stream.Collectors;

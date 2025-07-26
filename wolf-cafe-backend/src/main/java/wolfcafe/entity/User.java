@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.entity;
+package wolfcafe.entity;
 
 import java.util.Collection;
 import java.util.List;

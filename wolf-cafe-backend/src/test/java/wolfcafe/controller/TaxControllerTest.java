@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -21,10 +21,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
-import edu.ncsu.csc326.wolfcafe.repository.TaxRepository;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.TaxDto;
+import wolfcafe.entity.Tax;
+import wolfcafe.repository.TaxRepository;
 
 /**
  * Tests the TaxController endpoints.

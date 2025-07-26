@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service.impl;
+package wolfcafe.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.Recipe;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.mapper.RecipeMapper;
-import edu.ncsu.csc326.wolfcafe.repository.RecipeRepository;
-import edu.ncsu.csc326.wolfcafe.service.IngredientService;
-import edu.ncsu.csc326.wolfcafe.service.InventoryService;
-import edu.ncsu.csc326.wolfcafe.service.RecipeService;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.Recipe;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.mapper.RecipeMapper;
+import wolfcafe.repository.RecipeRepository;
+import wolfcafe.service.IngredientService;
+import wolfcafe.service.InventoryService;
+import wolfcafe.service.RecipeService;
 
 /**
  * Implementation of the RecipeService interface.

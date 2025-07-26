@@ -1,10 +1,10 @@
 /**
  * 
  */
-package edu.ncsu.csc326.wolfcafe.mapper;
+package wolfcafe.mapper;
 
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.entity.Ingredient;
 
 /**
  * Converts between IngredientDto and Ingredient entity.

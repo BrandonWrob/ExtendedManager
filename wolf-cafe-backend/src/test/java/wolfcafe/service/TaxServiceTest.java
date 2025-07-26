@@ -1,9 +1,9 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
-import edu.ncsu.csc326.wolfcafe.mapper.TaxMapper;
-import edu.ncsu.csc326.wolfcafe.repository.TaxRepository;
+import wolfcafe.dto.TaxDto;
+import wolfcafe.entity.Tax;
+import wolfcafe.mapper.TaxMapper;
+import wolfcafe.repository.TaxRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

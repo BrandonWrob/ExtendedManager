@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.repository.IngredientRepository;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.repository.IngredientRepository;
 
 /**
  * Tests IngredientController.

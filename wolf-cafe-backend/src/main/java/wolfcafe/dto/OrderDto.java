@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.dto;
+package wolfcafe.dto;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.MultiRecipe;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

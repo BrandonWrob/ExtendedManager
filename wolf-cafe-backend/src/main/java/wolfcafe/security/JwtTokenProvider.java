@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.security;
+package wolfcafe.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

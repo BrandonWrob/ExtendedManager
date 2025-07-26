@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.config;
+package wolfcafe.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import edu.ncsu.csc326.wolfcafe.security.JwtAuthenticationEntryPoint;
-import edu.ncsu.csc326.wolfcafe.security.JwtAuthenticationFilter;
+import wolfcafe.security.JwtAuthenticationEntryPoint;
+import wolfcafe.security.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;
 
 /**

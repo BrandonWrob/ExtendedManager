@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service.impl;
+package wolfcafe.service.impl;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,17 +13,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import edu.ncsu.csc326.wolfcafe.dto.JwtAuthResponse;
-import edu.ncsu.csc326.wolfcafe.dto.LoginDto;
-import edu.ncsu.csc326.wolfcafe.dto.RegisterDto;
-import edu.ncsu.csc326.wolfcafe.entity.Role;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
-import edu.ncsu.csc326.wolfcafe.repository.RoleRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
-import edu.ncsu.csc326.wolfcafe.security.JwtTokenProvider;
-import edu.ncsu.csc326.wolfcafe.service.AuthService;
+import wolfcafe.dto.JwtAuthResponse;
+import wolfcafe.dto.LoginDto;
+import wolfcafe.dto.RegisterDto;
+import wolfcafe.entity.Role;
+import wolfcafe.entity.User;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.repository.RoleRepository;
+import wolfcafe.repository.UserRepository;
+import wolfcafe.security.JwtTokenProvider;
+import wolfcafe.service.AuthService;
 import lombok.AllArgsConstructor;
 
 /**

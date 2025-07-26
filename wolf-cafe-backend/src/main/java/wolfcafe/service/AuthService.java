@@ -1,11 +1,11 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.dto.JwtAuthResponse;
-import edu.ncsu.csc326.wolfcafe.dto.LoginDto;
-import edu.ncsu.csc326.wolfcafe.dto.RegisterDto;
-import edu.ncsu.csc326.wolfcafe.entity.User;
+import wolfcafe.dto.JwtAuthResponse;
+import wolfcafe.dto.LoginDto;
+import wolfcafe.dto.RegisterDto;
+import wolfcafe.entity.User;
 
 /**
  * Authorization service

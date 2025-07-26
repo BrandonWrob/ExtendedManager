@@ -1,6 +1,6 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
+import wolfcafe.dto.TaxDto;
 
 /**
  * interface for TaxService deals with taxes

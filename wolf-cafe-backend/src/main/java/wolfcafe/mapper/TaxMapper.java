@@ -1,7 +1,7 @@
-package edu.ncsu.csc326.wolfcafe.mapper;
+package wolfcafe.mapper;
 
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
+import wolfcafe.dto.TaxDto;
+import wolfcafe.entity.Tax;
 
 /**
  * Mapper class to convert between Tax and TaxDto.

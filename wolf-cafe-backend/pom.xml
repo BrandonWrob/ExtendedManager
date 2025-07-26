@@ -84,7 +84,12 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+			<plugins>
+				<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-jar-plugin</artifactId>
+  			
+			</plugin>
 			<plugin>
 	        	<groupId>org.apache.maven.plugins</groupId>
 	        	<artifactId>maven-checkstyle-plugin</artifactId>
@@ -193,5 +198,13 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<repositories>
+  		<repository>
+    		<id>central</id>
+    		<url>https://repo.maven.apache.org/maven2</url>
+  		</repository>
+	</repositories>
+
 
 </project>

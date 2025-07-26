@@ -1,10 +1,10 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.dto.OrderHistoryDto;
-import edu.ncsu.csc326.wolfcafe.entity.OrderHistory;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.dto.OrderHistoryDto;
+import wolfcafe.entity.OrderHistory;
 
 /**
  * Interface for the Order History Service

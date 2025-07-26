@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.ncsu.csc326.wolfcafe.entity;
+package wolfcafe.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

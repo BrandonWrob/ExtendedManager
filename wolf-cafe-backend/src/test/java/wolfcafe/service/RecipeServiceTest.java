@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,11 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.repository.RecipeRepository;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.repository.RecipeRepository;
 
 /**
  * Tests RecipeService (and RecipeServiceImpl).

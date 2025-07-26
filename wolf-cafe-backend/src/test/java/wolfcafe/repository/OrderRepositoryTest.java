@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,9 +15,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.Order;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.Order;
 
 /**
  * tests OrderRepository

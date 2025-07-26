@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe;
+package wolfcafe;
 
 import com.google.gson.Gson;
 

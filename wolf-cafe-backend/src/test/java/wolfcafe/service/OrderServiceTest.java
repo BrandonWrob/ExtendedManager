@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,16 +16,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.Order;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
-import edu.ncsu.csc326.wolfcafe.repository.OrderRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.Order;
+import wolfcafe.entity.User;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.repository.OrderRepository;
+import wolfcafe.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 
 /**

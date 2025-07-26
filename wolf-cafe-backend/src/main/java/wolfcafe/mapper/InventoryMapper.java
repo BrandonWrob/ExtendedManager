@@ -1,7 +1,7 @@
-package edu.ncsu.csc326.wolfcafe.mapper;
+package wolfcafe.mapper;
 
-import edu.ncsu.csc326.wolfcafe.dto.InventoryDto;
-import edu.ncsu.csc326.wolfcafe.entity.Inventory;
+import wolfcafe.dto.InventoryDto;
+import wolfcafe.entity.Inventory;
 
 /**
  * Converts between InventoryDto and Inventory entity.

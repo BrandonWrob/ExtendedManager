@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service.impl;
+package wolfcafe.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,19 +9,19 @@ import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.Inventory;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.Order;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
-import edu.ncsu.csc326.wolfcafe.mapper.OrderMapper;
-import edu.ncsu.csc326.wolfcafe.repository.InventoryRepository;
-import edu.ncsu.csc326.wolfcafe.repository.OrderRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
-import edu.ncsu.csc326.wolfcafe.service.OrderService;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.Inventory;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.Order;
+import wolfcafe.entity.User;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.mapper.OrderMapper;
+import wolfcafe.repository.InventoryRepository;
+import wolfcafe.repository.OrderRepository;
+import wolfcafe.repository.UserRepository;
+import wolfcafe.service.OrderService;
 import lombok.AllArgsConstructor;
 
 /**

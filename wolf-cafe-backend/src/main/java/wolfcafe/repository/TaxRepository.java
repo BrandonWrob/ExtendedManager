@@ -1,11 +1,11 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
+import wolfcafe.entity.Tax;
 
 /**
  * Repository interface for Tax.

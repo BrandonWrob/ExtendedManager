@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
-import edu.ncsu.csc326.wolfcafe.service.AuthService;
-import edu.ncsu.csc326.wolfcafe.service.OrderService;
-import edu.ncsu.csc326.wolfcafe.service.RecipeService;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.service.AuthService;
+import wolfcafe.service.OrderService;
+import wolfcafe.service.RecipeService;
 
 /**
  * controller that handles API calls that deal with orders

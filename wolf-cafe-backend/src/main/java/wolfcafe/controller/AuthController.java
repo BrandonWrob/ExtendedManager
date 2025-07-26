@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ncsu.csc326.wolfcafe.dto.JwtAuthResponse;
-import edu.ncsu.csc326.wolfcafe.dto.LoginDto;
-import edu.ncsu.csc326.wolfcafe.dto.RegisterDto;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
-import edu.ncsu.csc326.wolfcafe.exception.WolfCafeAPIException;
-import edu.ncsu.csc326.wolfcafe.service.AuthService;
+import wolfcafe.dto.JwtAuthResponse;
+import wolfcafe.dto.LoginDto;
+import wolfcafe.dto.RegisterDto;
+import wolfcafe.entity.User;
+import wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.exception.WolfCafeAPIException;
+import wolfcafe.service.AuthService;
 import lombok.AllArgsConstructor;
 
 /**

@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.config;
+package wolfcafe.config;
 
 /**
  * Defines user roles for WolfCafe

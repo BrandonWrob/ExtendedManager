@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.config;
+package wolfcafe.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,10 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.entity.Role;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.repository.RoleRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
+import wolfcafe.entity.Role;
+import wolfcafe.entity.User;
+import wolfcafe.repository.RoleRepository;
+import wolfcafe.repository.UserRepository;
 
 
 /**

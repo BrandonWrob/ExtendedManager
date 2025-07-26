@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.security;
+package wolfcafe.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

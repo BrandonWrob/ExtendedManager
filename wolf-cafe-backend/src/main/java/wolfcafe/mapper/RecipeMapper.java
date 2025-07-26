@@ -1,7 +1,7 @@
-package edu.ncsu.csc326.wolfcafe.mapper;
+package wolfcafe.mapper;
 
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Recipe;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Recipe;
 
 /**
  * Converts between RecipeDto and Recipe entity.

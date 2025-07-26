@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.dto.OrderHistoryDto;
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.OrderHistory;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
-import edu.ncsu.csc326.wolfcafe.service.AuthService;
-import edu.ncsu.csc326.wolfcafe.service.OrderHistoryService;
-import edu.ncsu.csc326.wolfcafe.service.RecipeService;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.dto.OrderHistoryDto;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.OrderHistory;
+import wolfcafe.entity.User;
+import wolfcafe.repository.UserRepository;
+import wolfcafe.service.AuthService;
+import wolfcafe.service.OrderHistoryService;
+import wolfcafe.service.RecipeService;
 
 /**
  * controller that handles API calls that deal with orders

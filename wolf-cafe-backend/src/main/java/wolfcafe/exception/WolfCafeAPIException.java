@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.exception;
+package wolfcafe.exception;
 
 import org.springframework.http.HttpStatus;
 

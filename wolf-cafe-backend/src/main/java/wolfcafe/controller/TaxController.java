@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
-import edu.ncsu.csc326.wolfcafe.service.TaxService;
+import wolfcafe.dto.TaxDto;
+import wolfcafe.service.TaxService;
 
 /**
  * TaxController provides endpoints for managing taxes.

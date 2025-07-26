@@ -1,12 +1,12 @@
 /**
  * 
  */
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.exception.ResourceNotFoundException;
 
 /**
  * Interface defining the ingredient behaviors.

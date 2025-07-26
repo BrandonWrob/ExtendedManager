@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,13 +7,13 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.repository.IngredientRepository;
-import edu.ncsu.csc326.wolfcafe.repository.RecipeRepository;
-import edu.ncsu.csc326.wolfcafe.service.IngredientService;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.dto.RecipeDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.repository.IngredientRepository;
+import wolfcafe.repository.RecipeRepository;
+import wolfcafe.service.IngredientService;
 import jakarta.persistence.EntityManager;
 
 import com.google.gson.JsonObject;

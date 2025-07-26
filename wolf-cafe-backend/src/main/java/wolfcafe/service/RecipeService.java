@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.dto.RecipeDto;
+import wolfcafe.dto.RecipeDto;
 
 /**
  * Interface defining the recipe behaviors.

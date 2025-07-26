@@ -1,15 +1,15 @@
-package edu.ncsu.csc326.wolfcafe.service.impl;
+package wolfcafe.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.ncsu.csc326.wolfcafe.dto.TaxDto;
-import edu.ncsu.csc326.wolfcafe.entity.Tax;
-import edu.ncsu.csc326.wolfcafe.mapper.TaxMapper;
-import edu.ncsu.csc326.wolfcafe.repository.TaxRepository;
-import edu.ncsu.csc326.wolfcafe.service.TaxService;
+import wolfcafe.dto.TaxDto;
+import wolfcafe.entity.Tax;
+import wolfcafe.mapper.TaxMapper;
+import wolfcafe.repository.TaxRepository;
+import wolfcafe.service.TaxService;
 import jakarta.annotation.PostConstruct;
 
 

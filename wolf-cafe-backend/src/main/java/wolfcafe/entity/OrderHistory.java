@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.entity;
+package wolfcafe.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

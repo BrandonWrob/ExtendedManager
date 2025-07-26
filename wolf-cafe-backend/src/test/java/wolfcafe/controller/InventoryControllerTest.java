@@ -1,7 +1,7 @@
 /**
  *
  */
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -23,12 +23,12 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ncsu.csc326.wolfcafe.TestUtils;
-import edu.ncsu.csc326.wolfcafe.dto.IngredientDto;
-import edu.ncsu.csc326.wolfcafe.dto.InventoryDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.mapper.IngredientMapper;
-import edu.ncsu.csc326.wolfcafe.service.IngredientService;
+import wolfcafe.TestUtils;
+import wolfcafe.dto.IngredientDto;
+import wolfcafe.dto.InventoryDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.mapper.IngredientMapper;
+import wolfcafe.service.IngredientService;
 import jakarta.persistence.EntityManager;
 
 /**

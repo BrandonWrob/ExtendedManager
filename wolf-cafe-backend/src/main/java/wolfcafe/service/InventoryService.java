@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.service;
+package wolfcafe.service;
 
-import edu.ncsu.csc326.wolfcafe.dto.InventoryDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.exception.ResourceNotFoundException;
+import wolfcafe.dto.InventoryDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.exception.ResourceNotFoundException;
 
 /**
  * Interface defining the inventory behaviors.

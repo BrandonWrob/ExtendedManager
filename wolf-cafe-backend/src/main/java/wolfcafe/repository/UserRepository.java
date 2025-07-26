@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import edu.ncsu.csc326.wolfcafe.entity.User;
+import wolfcafe.entity.User;
 
 import java.util.Optional;
 

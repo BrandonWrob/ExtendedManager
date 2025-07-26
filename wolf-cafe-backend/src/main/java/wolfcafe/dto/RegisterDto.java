@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.dto;
+package wolfcafe.dto;
 
 import java.util.List;
 

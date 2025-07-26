@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.controller;
+package wolfcafe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ncsu.csc326.wolfcafe.dto.InventoryDto;
-import edu.ncsu.csc326.wolfcafe.service.InventoryService;
+import wolfcafe.dto.InventoryDto;
+import wolfcafe.service.InventoryService;
 
 /**
  * Controller for CoffeeMaker's inventory. The inventory is a singleton; there's

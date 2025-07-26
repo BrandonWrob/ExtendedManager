@@ -1,10 +1,10 @@
-package edu.ncsu.csc326.wolfcafe.repository;
+package wolfcafe.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import edu.ncsu.csc326.wolfcafe.entity.Recipe;
+import wolfcafe.entity.Recipe;
 
 /**
  * RecipeRepository for working with the DB through the 

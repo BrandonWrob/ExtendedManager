@@ -1,8 +1,8 @@
-package edu.ncsu.csc326.wolfcafe.dto;
+package wolfcafe.dto;
 
 import java.util.List;
 
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
+import wolfcafe.entity.Ingredient;
 
 /**
  * Used to transfer Inventory data between the client and server. This class

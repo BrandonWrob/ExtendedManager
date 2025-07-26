@@ -1,7 +1,7 @@
-package edu.ncsu.csc326.wolfcafe.mapper;
+package wolfcafe.mapper;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.entity.Order;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.entity.Order;
 
 /**
  * maps between an Order and OrderDto be warned: list parts are shallow copies

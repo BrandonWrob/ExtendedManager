@@ -1,4 +1,4 @@
-package edu.ncsu.csc326.wolfcafe.service.impl;
+package wolfcafe.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +9,17 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.ncsu.csc326.wolfcafe.dto.OrderDto;
-import edu.ncsu.csc326.wolfcafe.dto.OrderHistoryDto;
-import edu.ncsu.csc326.wolfcafe.entity.Ingredient;
-import edu.ncsu.csc326.wolfcafe.entity.MultiRecipe;
-import edu.ncsu.csc326.wolfcafe.entity.OrderHistory;
-import edu.ncsu.csc326.wolfcafe.entity.User;
-import edu.ncsu.csc326.wolfcafe.mapper.OrderHistoryMapper;
-import edu.ncsu.csc326.wolfcafe.repository.OrderHistoryRepository;
-import edu.ncsu.csc326.wolfcafe.repository.UserRepository;
-import edu.ncsu.csc326.wolfcafe.service.OrderHistoryService;
-import edu.ncsu.csc326.wolfcafe.service.TaxService;
+import wolfcafe.dto.OrderDto;
+import wolfcafe.dto.OrderHistoryDto;
+import wolfcafe.entity.Ingredient;
+import wolfcafe.entity.MultiRecipe;
+import wolfcafe.entity.OrderHistory;
+import wolfcafe.entity.User;
+import wolfcafe.mapper.OrderHistoryMapper;
+import wolfcafe.repository.OrderHistoryRepository;
+import wolfcafe.repository.UserRepository;
+import wolfcafe.service.OrderHistoryService;
+import wolfcafe.service.TaxService;
 import lombok.AllArgsConstructor;
 
 /**
