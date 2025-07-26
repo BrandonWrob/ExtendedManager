@@ -3,8 +3,8 @@
 ### 📑 Table of Contents
 - [Backend Design](#backend-design)
   - [Entity / DTOs / Mapper / Repo](#entity-dtos-mapper-repo)
-  - [Config/Security/Exception](#config-security-exception)
-  - [Service/Implementation/Controller/APIs](#service-implementation-controller-apis)
+  - [Config / Security / Exception](#config-security-exception)
+  - [Service / Implementation / Controller / APIs](#service-implementation-controller-apis)
 - [Frontend Design](#api-design)
 - [Testing and Coverage](#testing-and-coverage)
 - [Branch Management](#branch-management)
