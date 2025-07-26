@@ -2,7 +2,7 @@
 
 ### 📑 Table of Contents
 - [Backend Design](#backend-design)
-  - [Entity/Dto/Mapper/Repo](#entity-dto-mapper-repo)
+  - [Entity / DTOs / Mapper / Repo](#entity-dtos-mapper-repo)
   - [Config/Security/Exception](#config-security-exception)
   - [Service/Implementation/Controller/APIs](#service-implementation-controller-apis)
 - [Frontend Design](#api-design)
@@ -17,13 +17,13 @@
 # Backend Design
 - Note: Files for designs can be found under the Diagram folder.
 
-## Entity/Dto/Mapper/Repo
+## Entity / DTOs / Mapper / Repo
 ![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper_Repo.png)
 ![Entity/Dto/Mapper](Diagrams/SQL_Tables.png)
 
-## Config/Security/Exception
+## Config / Security / Exception
 
-## Service/Implementation/Controller/APIs
+## Service / Implementation / Controller / APIs
 
 # Frontend Design
 
@@ -41,7 +41,7 @@ You can run all of the tests at once by right clicking on the src/test/java fold
 
 ## Run Maven Test
 Right click on pom.xml and select Run As > 6 Maven Test
-### WolfCafe Backend Statement/Branch Coverage
+### WolfCafe Backend Statement / Branch Coverage
 
 ![Backend Coverage](.github/badges/jacoco-backend.svg)
 ![Backend Branch Coverage](.github/badges/jacoco-branches.svg)
