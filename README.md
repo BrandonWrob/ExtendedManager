@@ -1,20 +1,28 @@
 # ExtendedManager
 
 ### 📑 Table of Contents
-- [Coverage](#Coverage)
+- [Testing and Coverage](#Coverage)
 - [Branch Management](#branch-management)
 - [Setup Guide](#setup-guide)
   - [Environment Setup](#environment-setup)
   - [Eclipse Backend Setup](#eclipse-backend-setup)
   - [Eclipse Frontend Setup](#eclipse-frontend-setup)
-- [Test Guide](#test-guide)
-  - [Run Frontend Test](#run-frontend-test)
-  - [Run Backend Test](#run-backend-test)
-  - [Run Maven Test](#run-maven-test)
 - [Contributors](#contributors)
 
-# Coverage
+# Testing and Coverage
 
+### Run Frontend Test
+- remove wolf-cafe-frontend/node_modules and wolf-cafe-frontend/package-lock.jspn.
+- In wolf-cafe-frontend, run npm install --save-dev vitest
+- run npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+- run npm run test to start tests.
+- if you want to run coverage run npm run test:coverage
+  
+## Run Backend Test
+You can run all of the tests at once by right clicking on the src/test/java folder and selecting Run As > JUnit.
+
+## Run Maven Test
+Right click on pom.xml and select Run As > 6 Maven Test
 ### WolfCafe Backend Statement/Branch Coverage
 
 ![Backend Coverage](.github/badges/jacoco-backend.svg)
@@ -79,21 +87,6 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
 5. Create the node_modules directory by typing the following in the terminal: % npm install
 6. Run the frontend by typing into the terminal: %npm run dev
 7. View in browser by typing: http://localhost:3000
-
-# Test Guide
-
-## Run Frontend Test
-- remove wolf-cafe-frontend/node_modules and wolf-cafe-frontend/package-lock.jspn.
-- In wolf-cafe-frontend, run npm install --save-dev vitest
-- run npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
-- run npm run test to start tests.
-- if you want to run coverage run npm run test:coverage
-  
-## Run Backend Test
-You can run all of the tests at once by right clicking on the src/test/java folder and selecting Run As > JUnit.
-
-## Run Maven Test
-Right click on pom.xml and select Run As > 6 Maven Test
 
 # Contributors
 - The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak (
