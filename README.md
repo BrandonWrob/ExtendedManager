@@ -19,7 +19,7 @@
 - Note: Files for designs can be found under the Diagram folder.
 
 ## Entity/Dto/Mapper
-![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper.png)
+![Entity/Dto/Mapper](Diagrams/Entity_DTO_Mapper_Repo.png)
 ![Entity/Dto/Mapper](Diagrams/SQL_Tables.png)
 
 ## Repositories/Service/Implementation/Controller
