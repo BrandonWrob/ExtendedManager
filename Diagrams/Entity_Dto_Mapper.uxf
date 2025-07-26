@@ -1,0 +1,200 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>483</x><y>259</y><w>112</w><h>98</h></coordinates><panel_attributes>User
+--
+-id: Long
+-name:String
+-username:String
+-email:String
+-password:String
+-roles:Collection&lt;Role&gt;
+-ordersList&lt;Order&gt;
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>910</x><y>252</y><w>105</w><h>84</h></coordinates><panel_attributes>MultiRecipe
+--
+-id:Long
+-price:Integer
+-ingredients:List&lt;Ingredient&gt;
+-amount:Integer
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>756</x><y>301</y><w>168</w><h>35</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>220;30;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>623</x><y>259</y><w>140</w><h>56</h></coordinates><panel_attributes>Order
+--
+-id: Long
+-fulfilled:boolean
+-recipes:List&lt;Multirecipe&gt;
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>588</x><y>266</y><w>49</w><h>49</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>50;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>938</x><y>364</y><w>175</w><h>126</h></coordinates><panel_attributes>Inventory
+--
+-id:Long
+-ingredients:List&lt;Ingredient&gt;
+--
+-Inventory()
+-Inventory(id:Long, ingredients:List&lt;Ingredient&gt;)
++getId():id
++setId(id: Long): void
++getIngredients():List&lt;Ingredient&gt;
++setIngredient(ingredients:List&lt;Ingredient&gt;): void
++addIngredient(ingredient:Ingredient):void
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>735</x><y>364</y><w>175</w><h>140</h></coordinates><panel_attributes>Ingredient
+--
+-id:Long
+-name: String
+-amount: Integer
+--
+-Ingredient()
+-Ingredient(name: String, amount: Integer)
++getId():id
++setId(id: Long): void
++getName():String
++setName(name: String): void
++getAmount(): Integer
++setAmount(amount:Integer):void
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>518</x><y>399</y><w>182</w><h>77</h></coordinates><panel_attributes>OrderHistory
+--
+-id: Long
+-pickedUp:boolean
+-recipesInOrder:String
+-IngredientsUsed:String
+-total:Double
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>329</y><w>154</w><h>49</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>10;50;200;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>56</x><y>119</y><w>308</w><h>385</h></coordinates><panel_attributes>wolfcafe.mapper
+--
+bg=pink
+layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>105</x><y>140</y><w>189</w><h>56</h></coordinates><panel_attributes>OrderMapper
+--
+--
++mapToOrder(orderDto:OrderDto):Order
++mapToOrderDto(order:Order):OrderDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>105</x><y>203</y><w>189</w><h>49</h></coordinates><panel_attributes>TaxMapper
+--
+--
++mapToTax(taxDto:TaxDto):Tax
++mapToTaxDto(tax:Tax):TaxDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>105</x><y>259</y><w>189</w><h>49</h></coordinates><panel_attributes>RecipeMapper
+--
+--
++mapToRecipe(trecipeDto:RecipeDto):Recipe
++mapToRecipeDto(trecipe:Recipe):RecipeDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>315</y><w>287</w><h>49</h></coordinates><panel_attributes>OrderHistoryMapper
+--
+--
++mapToOrderHistory(orderHistoryDto:OrderHistoryDto):OrderHistory
++mapToOrderHistoryDto(orderHistory:OrderHistory):OrderHistoryDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>378</y><w>287</w><h>49</h></coordinates><panel_attributes>InventoryMapper
+--
+--
++mapToInventory(inventoryDto:InventoryDto):Inventory
++mapToInventoryDto(inventory:Inventory):InventoryDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>441</y><w>287</w><h>49</h></coordinates><panel_attributes>IngredientMapper
+--
+--
++mapToIngredient(ingredientDto:IngredientDto):Ingredient
++mapToIngredientDto(ingredient:Ingredient):IngredientDto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>56</x><y>560</y><w>140</w><h>56</h></coordinates><panel_attributes>OrderDto
+--
+-id: Long
+-fulfilled:boolean
+-recipes:List&lt;Multirecipe&gt;
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>532</x><y>126</y><w>70</w><h>49</h></coordinates><panel_attributes>Role
+--
+-id:Long
+-name:String
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1015</x><y>154</y><w>70</w><h>49</h></coordinates><panel_attributes>Tax
+--
+-id:Long
+-rate:Double
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>672</x><y>63</y><w>301</w><h>175</h></coordinates><panel_attributes>Recipe
+--
+-id:Long
+-name:String
+-price:Integer
+-ingredients:List&lt;Ingredient&gt;
+--
+-Recipe()
+-Recipe(id: Long, name: String, price:Integer, ingredients:List&lt;Ingredient&gt;)
++getId():id
++setId(id: Long): void
++getName():String
++setName(name: String): void
++getPrice(): Integer
++setPrice(price: Integer): void
++getIngredients():ingredients:List&lt;Ingredient&gt;
++setIngredientst(ingredients:List&lt;Ingredient&gt;):void
+
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>476</x><y>42</y><w>658</w><h>483</h></coordinates><panel_attributes>wolfcafe.entity
+--
+bg=#800080</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>833</x><y>231</y><w>42</w><h>147</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>40;190;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>49</x><y>672</y><w>112</w><h>98</h></coordinates><panel_attributes>UserDto
+--
+-id: Long
+-name:String
+-username:String
+-email:String
+-password:String
+-roles:Collection&lt;Role&gt;
+-ordersList&lt;Order&gt;
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>105</x><y>609</y><w>42</w><h>77</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>40;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>238</x><y>553</y><w>105</w><h>84</h></coordinates><panel_attributes>MultiRecipeDto
+--
+-id:Long
+-price:Integer
+-ingredients:List&lt;Ingredient&gt;
+-amount:Integer
+--
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>224</x><y>665</y><w>175</w><h>140</h></coordinates><panel_attributes>IngredientDto
+--
+-id:Long
+-name: String
+-amount: Integer
+--
+-Ingredient()
+-Ingredient(name: String, amount: Integer)
++getId():id
++setId(id: Long): void
++getName():String
++setName(name: String): void
++getAmount(): Integer
++setAmount(amount:Integer):void
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>189</x><y>567</y><w>63</w><h>42</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>70;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>294</x><y>630</y><w>42</w><h>49</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>40;50;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>749</x><y>560</y><w>63</w><h>56</h></coordinates><panel_attributes>TaxDto
+--
+-id:Long
+-rate:Double
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>42</x><y>532</y><w>973</w><h>287</h></coordinates><panel_attributes>wolfcafe.dto
+--
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>560</y><w>301</w><h>175</h></coordinates><panel_attributes>RecipeDto
+--
+-id:Long
+-name:String
+-price:Integer
+-ingredients:List&lt;Ingredient&gt;
+--
+-Recipe()
+-Recipe(id: Long, name: String, price:Integer, ingredients:List&lt;Ingredient&gt;)
++getId():id
++setId(id: Long): void
++getName():String
++setName(name: String): void
++getPrice(): Integer
++setPrice(price: Integer): void
++getIngredients():ingredients:List&lt;Ingredient&gt;
++setIngredientst(ingredients:List&lt;Ingredient&gt;):void
+
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>357</x><y>567</y><w>77</w><h>112</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>10;140;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>903</x><y>392</y><w>49</w><h>84</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>10;100;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>742</x><y>679</y><w>175</w><h>126</h></coordinates><panel_attributes>InventoryDto
+--
+-id:Long
+-ingredients:List&lt;Ingredient&gt;
+--
+-Inventory()
+-Inventory(id:Long, ingredients:List&lt;Ingredient&gt;)
++getId():id
++setId(id: Long): void
++getIngredients():List&lt;Ingredient&gt;
++setIngredient(ingredients:List&lt;Ingredient&gt;): void
++addIngredient(ingredient:Ingredient):void
+...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>756</y><w>364</w><h>28</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;
+</panel_attributes><additional_attributes>10;20;500;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>847</x><y>560</y><w>70</w><h>49</h></coordinates><panel_attributes>RoleDto
+--
+-id:Long
+-name:String
+--</panel_attributes><additional_attributes></additional_attributes></element></diagram>
