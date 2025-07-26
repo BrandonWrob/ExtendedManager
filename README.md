@@ -3,8 +3,10 @@
 ### 📑 Table of Contents
 - [Backend Design](#backend-design)
   - [Entity/Dto/Mapper/Repositories](#entitydtomapperrepositories)
-  - [Service and Implementation](#service-and-implementation)
+  - [Service/Implementation/Controller](#service-implementation-controller)
   - [Controller](#controller)
+- [API Design](#api-design)
+- [Frontend Design](#api-design)
 - [Testing and Coverage](#testing-and-coverage)
 - [Branch Management](#branch-management)
 - [Setup Guide](#setup-guide)
@@ -17,9 +19,12 @@
 
 ## Entity/Dto/Mapper/Repositories
 
-## Service and Implementation
+## Service/Implementation/Controller
 
-## Controller
+# API Design
+- Note: API Endpoint Diagram
+
+# Frontend Design
 
 # Testing and Coverage
 
