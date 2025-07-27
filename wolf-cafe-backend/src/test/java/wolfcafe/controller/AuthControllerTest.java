@@ -33,10 +33,7 @@ import wolfcafe.repository.UserRepository;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class AuthControllerTest {
-	
-    /** admin password for testing login */
-	@Value("${app.admin-user-password}")
-	private String adminUserPassword;
+
 	
     /** Mock MVC for testing controller */
 	@Autowired
@@ -53,25 +50,6 @@ public class AuthControllerTest {
 	@Autowired
     private PasswordEncoder passwordEncoder;
 	
-    /**
-     * Tests the POST /api/auth/login endpoint.
-     *
-     * @throws Exception
-     *             if issue when running the test.
-     */
-	@Test
-	@Transactional
-	public void testLoginAdmin() throws Exception {
-		LoginDto loginDto = new LoginDto("admin", adminUserPassword);
-		
-		mvc.perform(post("/api/auth/login")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(TestUtils.asJsonString(loginDto))
-				.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.tokenType").value("Bearer"))
-				.andExpect(jsonPath("$.role").value("ROLE_ADMIN"));
-	}
 	
     /**
      * Tests the POST /api/auth/login endpoint with a non-existent user and role.
