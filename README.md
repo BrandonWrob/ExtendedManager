@@ -95,16 +95,15 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
   * Set `app.admin-user-password` to a plain text string that you will use as the admin password.
 
 8. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
-9. Run the project by right clicking on the project application and selecting Run As > Java Application.
+9. Run the project by right clicking on the project application (WolfCafeApplication.java) and selecting Run As > Java Application.
 
 ## Eclipse Frontend Setup
-1. In the Git Repositories View, open the arrow next to your repo and then the Working Tree Folder
-2. Right click on coffee_maker_frontend and select Import Projects
-3. Click Finish
-4. Open Terminal View (Window > Show View > Terminal)
-5. Create the node_modules directory by typing the following in the terminal: % npm install
-6. Run the frontend by typing into the terminal: %npm run dev
-7. View in browser by typing: http://localhost:3000
+1. Verify the backend is running (step 9 of backend setup)
+2. In the Git Repositories View, right click wolf-cafe-frontend under the working tree folder and select Import Projects > Finish
+3. Open Terminal View (Window > Show View > Terminal) and cd into the wolf-cafe-frontend directory (should be in something like ...\ExtendedManager\wolf-cafe-frontend>
+4. Create the node_modules directory by typing the following in the terminal: % npm install
+7. Run the frontend by typing into the terminal: %npm run dev
+8. View in browser by typing: http://localhost:3000
 
 # Contributors
 - The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak (
