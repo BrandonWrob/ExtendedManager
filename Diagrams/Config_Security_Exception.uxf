@@ -1,0 +1,95 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLPackage</id><coordinates><x>28</x><y>434</y><w>1071</w><h>182</h></coordinates><panel_attributes>wolfcafe.security
+--
+bg=red
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>875</x><y>301</y><w>168</w><h>77</h></coordinates><panel_attributes>Roles
+--
++ ROLE_ADMIN: String = "ROLE_ADMIN"
+--
++ UserRoles
+    - ROLE_MANAGER
+    - ROLE_STAFF
+    - ROLE_CUSTOMER</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>28</x><y>630</y><w>1078</w><h>175</h></coordinates><panel_attributes>wolfcafe.exception
+--
+bg=orange
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>28</x><y>266</y><w>1071</w><h>154</h></coordinates><panel_attributes>wolfcafe.config
+--
+bg=pink
+layer=-2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>287</y><w>399</w><h>112</h></coordinates><panel_attributes>SetupDataLoader implements ApplicationListener&lt;ContextRefreshedEvent&gt;
+--
+- alreadySetup: boolean = false
+- roleRepository: RoleRepository
+- userRepository: UserRepository
+- passwordEncoder: PasswordEncoder
+- adminUserPassword: String
+--
++ onApplicationEvent(event: ContextRefreshedEvent): void
++ createRoleIfNotFound(name: String): Role
++ createUserIfNotFound(name: String, username: String, email: String, roles: Collection&lt;Role&gt;): User</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>294</y><w>420</w><h>84</h></coordinates><panel_attributes>SpringSecurityConfig
+--
+- authenticationEntryPoint: JwtAuthenticationEntryPoint
+- authenticationFilter: JwtAuthenticationFilter
+--
++ passwordEncoder(): PasswordEncoder [static, @Bean]
++ securityFilterChain(http: HttpSecurity): SecurityFilterChain [@Bean]
++ authenticationManager(configuration: AuthenticationConfiguration): AuthenticationManager [@Bean]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>679</x><y>553</y><w>406</w><h>49</h></coordinates><panel_attributes>CustomUserDetailsService implements UserDetailsService
+--
+- userRepository: UserRepository
+--
++ loadUserByUsername(usernameOrEmail: String): UserDetails throws UsernameNotFoundException
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>553</y><w>637</w><h>35</h></coordinates><panel_attributes>JwtAuthenticationEntryPoint implements AuthenticationEntryPoint
+--
++ commence(request: HttpServletRequest, response: HttpServletResponse, authException: AuthenticationException): void throws IOException, ServletException
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>455</y><w>588</w><h>70</h></coordinates><panel_attributes>JwtAuthenticationFilter
+--
+- jwtTokenProvider: JwtTokenProvider
+- userDetailsService: UserDetailsService
+--
++ doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain): void throws ServletException, IOException
+- getTokenFromRequest(request: HttpServletRequest): String
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>686</x><y>455</y><w>238</w><h>91</h></coordinates><panel_attributes>JwtTokenProvider
+--
+- jwtSecret: String [injected from config]
+- jwtExpirationDate: Long [injected from config]
+--
++ generateToken(authentication: Authentication): String
++ getUsername(token: String): String
++ validateToken(token: String): boolean
+- key(): SecretKey
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>35</x><y>651</y><w>301</w><h>140</h></coordinates><panel_attributes>ErrorDetails
+--
+- timeStamp: LocalDateTime
+- message: String
+- details: String
+--
++ ErrorDetails()
++ ErrorDetails(timeStamp: LocalDateTime, message: String, details: String)
++ getTimeStamp(): LocalDateTime
++ getMessage(): String
++ getDetails(): String
++ setTimeStamp(timeStamp: LocalDateTime): void
++ setMessage(message: String): void
++ setDetails(details: String): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>651</y><w>455</w><h>35</h></coordinates><panel_attributes>GlobalExceptionHandler
+--
++ handleAPIException(exception: WolfCafeAPIException, webRequest: WebRequest): ResponseEntity&lt;ErrorDetails&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>707</y><w>238</w><h>35</h></coordinates><panel_attributes>ResourceNotFoundException extends RuntimeException
+--
++ ResourceNotFoundException(message: String)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>679</y><w>210</w><h>77</h></coordinates><panel_attributes>WolfCafeAPIException extends RuntimeException
+--
+- status: HttpStatus
+- message: String
+--
++ WolfCafeAPIException(status: HttpStatus, message: String)
++ getStatus(): HttpStatus
++ getMessage(): String
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
