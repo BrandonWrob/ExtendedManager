@@ -1,4 +1,4 @@
-package wolfcafe;
+package wolfcafe.aws;
 
 import static org.junit.jupiter.api.Assertions.*;
 
