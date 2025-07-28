@@ -10,6 +10,9 @@ import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sts.StsClient;
 import software.amazon.awssdk.services.sts.model.GetCallerIdentityRequest;
 
+/**
+ * test that it connects to Springboot successfully 
+ */
 @SpringBootTest
 public class AwsCredentialsIntegrationTest {
 
@@ -24,7 +27,7 @@ public class AwsCredentialsIntegrationTest {
         assertNotNull(secretAccessKey, "AWS_SECRET_ACCESS_KEY environment variable is not set");
         assertNotNull(region, "aws.region property is not set");
     }
-
+    
     @Test
     void testAwsStsCallSucceeds() {
         try (StsClient stsClient = StsClient.builder()
