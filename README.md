@@ -10,6 +10,7 @@
 - [Setup Guide](#setup-guide)
   - [Environment Setup](#environment-setup)
   - [Eclipse Backend Setup](#eclipse-backend-setup)
+  - [Eclipse AWS Setup](#eclipse-aws-setup)
   - [Eclipse Frontend Setup](#eclipse-frontend-setup)
 - [Contributors](#contributors)
 
@@ -93,9 +94,26 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
   * Set `spring.datasource.password` to your local MySQL password`
   * Set `app.jwt-secret` by encrypting any phrase using SHA256 into app.jwt-secret, tool I used to generate it was https://emn178.github.io/online-tools/sha256.html
   * Set `app.admin-user-password` to a plain text string that you will use as the admin password.
-
 8. Rightclick the pom.xml file and select Maven > Update Project then click Ok.
-9. Run the project by right clicking on the project application (WolfCafeApplication.java) and selecting Run As > Java Application.
+9. Run the JUnit test by right-clicking src/test/java > Run as > Junit Test, it should pass ALL test except AWS test at this point
+10. Run the project by right clicking on the project application (WolfCafeApplication.java) and selecting Run As > Java Application. 
+    
+## Eclipse AWS Setup
+1. Create a AWS Account and generate a AWS Secret Access Key
+2. Store the key locally in environment variables
+   - Linux/macOS: Type the following commands with key values
+       * export AWS_ACCESS_KEY_ID=your_access_key_here
+       * export AWS_SECRET_ACCESS_KEY=your_secret_key_here
+       * export AWS_REGION=your_region
+       * source ~/.bashrc
+   - Windows:
+      1. Open System Properties → Advanced → Environment Variables
+      2. Under "User variables" or "System variables", click New.
+      3. Add:
+        * Name: AWS_ACCESS_KEY_ID, Value: your key
+        * Name: AWS_SECRET_ACCESS_KEY, Value: your secret
+        * Name: AWS_REGION, Value: your region 
+4. Run the JUnit test by right-clicking src/test/java > Run as > Junit Test, it should pass all test since you should have all backend components set up by now.
 
 ## Eclipse Frontend Setup
 1. Verify the backend is running (step 9 of backend setup)
@@ -106,5 +124,5 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
 8. View in browser by typing: http://localhost:3000
 
 # Contributors
-- The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak (
+- The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak
 - The project is an extension of Store-Management-Application which was developed by Brandon Wroblewski (bnwroble), wtwalton, sadusum3, olweaver, and sesmith5.
