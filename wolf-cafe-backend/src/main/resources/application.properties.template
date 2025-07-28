@@ -1,3 +1,7 @@
+## NOTE, DO NOT FILL CREDENTIALS HERE, this is a template. 
+## Copy it and name it application.properties, the .gitignore
+## prevents the credentials from being pushed. 
+
 spring.application.name=wolf-cafe-backend
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://localhost:3306/wolfcafe?createDatabaseIfNotExist=true
@@ -12,3 +16,14 @@ app.jwt-secret=
 app.jwt-expiration-milliseconds=604800000
 # Plain text password for default admin user
 app.admin-user-password=
+
+# Make sure to have your AWS keys stored locally in env variables
+
+aws.accessKeyId=${AWS_ACCESS_KEY_ID}
+
+aws.secretAccessKey=${AWS_SECRET_ACCESS_KEY}
+
+aws.region=${AWS_REGION}
+
+# Lambda function name to invoke
+aws.lambda.functionName=

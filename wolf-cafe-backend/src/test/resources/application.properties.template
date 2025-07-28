@@ -12,3 +12,13 @@ app.jwt-secret=
 app.jwt-expiration-milliseconds=604800000
 # Plain text password for default admin user
 app.admin-user-password=
+
+# Make sure to have your AWS keys stored locally in env variables
+
+aws.accessKeyId=${AWS_ACCESS_KEY_ID}
+
+aws.secretAccessKey=${AWS_SECRET_ACCESS_KEY}
+
+
+# Lambda function name to invoke
+aws.lambda.functionName=
