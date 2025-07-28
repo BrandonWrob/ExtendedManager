@@ -79,6 +79,7 @@ public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
      */
     @Override
     protected void append(ILoggingEvent event) {
+    	System.out.println("📤 Logging to CloudWatch: " + event.getFormattedMessage());
         try {
             InputLogEvent logEvent = InputLogEvent.builder()
                 .message(event.getFormattedMessage())
