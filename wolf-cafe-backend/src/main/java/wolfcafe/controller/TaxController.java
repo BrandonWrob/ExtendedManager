@@ -1,5 +1,7 @@
 package wolfcafe.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ import wolfcafe.service.TaxService;
 @RequestMapping ( "/api/tax" )
 public class TaxController {
 
+	private static final Logger log = LoggerFactory.getLogger(OrderController.class);
+	
     /** Reference to TaxService */
     @Autowired
     private TaxService taxService;
@@ -63,10 +67,12 @@ public class TaxController {
     public ResponseEntity<?> setTax ( @RequestBody final Double rate ) {
         try {
             final TaxDto updatedTax = taxService.setTax( rate );
+            log.info("Tax rate successfully updated to: {}", updatedTax.getRate());
             return ResponseEntity.ok( updatedTax );
         }
         catch ( final IllegalArgumentException e ) {
             // Return a JSON error message directly
+        	log.warn("Failed to update tax rate to {}: {}", rate, e.getMessage());
             return ResponseEntity.status( HttpStatus.BAD_REQUEST )
                     .contentType( org.springframework.http.MediaType.APPLICATION_JSON )
                     .body( "{\"message\": \"" + e.getMessage() + "\"}" );

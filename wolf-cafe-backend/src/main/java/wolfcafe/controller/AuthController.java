@@ -1,7 +1,8 @@
 package wolfcafe.controller;
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,6 +32,8 @@ import lombok.AllArgsConstructor;
 @RequestMapping ( "/api/auth" )
 @AllArgsConstructor
 public class AuthController {
+	
+	private static final Logger log = LoggerFactory.getLogger(OrderController.class);
 
     /** Link to AuthService */
     private final AuthService authService;
@@ -63,6 +66,9 @@ public class AuthController {
         catch ( final WolfCafeAPIException e ) {
             return new ResponseEntity<>( e.getMessage(), e.getStatus() );
         }
+        List<String> roles = registerDto.getRoles();
+        String roleLog = "roles: " + String.join(", ", roles);
+        log.info("Successfully registered user: {}, {}", registerDto.getUsername(), roleLog);
         return new ResponseEntity<>( response, HttpStatus.CREATED );
     }
 
@@ -82,8 +88,13 @@ public class AuthController {
             response = authService.register( registerDto, true );
         }
         catch ( final WolfCafeAPIException e ) {
+        	log.warn("Failed to register user {}: {}", registerDto.getUsername(), e.getMessage());
             return new ResponseEntity<>( e.getMessage(), e.getStatus() );
         }
+        List<String> roles = registerDto.getRoles();
+        String roleLog = "roles: " + String.join(", ", roles);
+
+        log.info("Successfully registered user: {}, {}", registerDto.getUsername(), roleLog);
         return new ResponseEntity<>( response, HttpStatus.CREATED );
     }
 
@@ -97,6 +108,7 @@ public class AuthController {
     @PostMapping ( "/login" )
     public ResponseEntity<JwtAuthResponse> login ( @RequestBody final LoginDto loginDto ) {
         final JwtAuthResponse jwtAuthResponse = authService.login( loginDto );
+        log.info("User logged in successfully: {}", loginDto.getUsernameOrEmail());
         return new ResponseEntity<>( jwtAuthResponse, HttpStatus.OK );
     }
 
@@ -114,8 +126,10 @@ public class AuthController {
             authService.deleteUserById( id );
         }
         catch ( final ResourceNotFoundException e ) {
+        	log.warn("Failed to delete user with ID {}: {}", id, e.getMessage());
             return new ResponseEntity<>( e.getMessage(), HttpStatus.BAD_REQUEST );
         }
+        log.info("User with ID {} deleted successfully.", id);
         return ResponseEntity.ok( "User deleted successfully." );
     }
 
@@ -137,8 +151,10 @@ public class AuthController {
             response = authService.editUser( id, registerDto );
         }
         catch ( final WolfCafeAPIException e ) {
+        	log.warn("Failed to edit user with ID {}: {}", id, e.getMessage());
             return new ResponseEntity<>( e.getMessage(), e.getStatus() );
         }
+        log.info("User with ID {} edited successfully.", id);
         return new ResponseEntity<>( response, HttpStatus.OK );
     }
 }

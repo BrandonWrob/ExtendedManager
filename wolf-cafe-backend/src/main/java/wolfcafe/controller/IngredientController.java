@@ -59,7 +59,7 @@ public class IngredientController {
             }
         }
         final IngredientDto savedIngredientDto = ingredientService.createIngredient( ingredientDto );
-        log.info("Ingredient created successfully: {}", savedIngredientDto);
+        log.info("Ingredient created successfully: {}", savedIngredientDto.getName());
         return ResponseEntity.ok( savedIngredientDto );
     }
 

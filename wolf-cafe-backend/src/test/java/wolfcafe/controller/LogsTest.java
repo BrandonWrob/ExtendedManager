@@ -19,7 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * 4) Look for the log group name you configured in CloudWatchAppender, it should be private String logGroupName = "SpringBootLogs";
  * 
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+	    classes = wolfcafe.WolfCafeApplication.class,
+	    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+	)
 public class LogsTest {
 
     @LocalServerPort

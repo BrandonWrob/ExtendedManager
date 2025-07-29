@@ -40,6 +40,8 @@ public void placeOrder(String userId) {
 		log.error("Failed to place order for user {}", userId, e);
 	}
 }
+
+Since all login utilizes the same functionality as the test case here, if the logs work for it then you are set!
  */
 public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
 

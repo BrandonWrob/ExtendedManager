@@ -2,7 +2,8 @@ package wolfcafe.controller;
 
 import java.util.List;
 import java.util.Optional;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,8 @@ import wolfcafe.service.RecipeService;
 @RestController
 @RequestMapping ( "/api/orders/history" )
 public class OrderHistoryController {
+	
+	private static final Logger log = LoggerFactory.getLogger(OrderController.class);
 
     /** reference to AuthService */
     @Autowired
@@ -75,6 +78,7 @@ public class OrderHistoryController {
         // input a invalid one using the API call
         orderDto.setFulfilled( false );
         if ( null == orderDto.getRecipes() || 0 == orderDto.getRecipes().size() ) {
+        	log.error("Order creation failed: No recipes provided by user [{}]", usernameOrEmail);
             return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
         }
 
@@ -86,6 +90,7 @@ public class OrderHistoryController {
             }
             // catch recipe name doesn't exist
             catch ( final Exception e ) {
+            	log.error("Order creation failed: Recipe [{}] not found for user [{}]", multiRecipe.getName(), usernameOrEmail);
                 return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
             }
             multiRecipe.setId( 0L ); // preventing save collisions
@@ -95,6 +100,7 @@ public class OrderHistoryController {
             if ( null == multiRecipe.getAmount() || null == multiRecipe.getIngredients()
                     || realRecipe.getIngredients().size() != multiRecipe.getIngredients().size()
                     || !realRecipe.getPrice().equals( multiRecipe.getPrice() ) || multiRecipe.getAmount() <= 0 ) {
+            	log.error("Order creation failed: Invalid recipe [{}] by user [{}]", multiRecipe.getName(), usernameOrEmail);
                 return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
             }
 
@@ -107,6 +113,7 @@ public class OrderHistoryController {
                 // check if ingredient price or name is bad
                 if ( !realIngredient.getName().equals( ingredient.getName() )
                         || !realIngredient.getAmount().equals( ingredient.getAmount() ) ) {
+                	 log.error("Order creation failed: Ingredient mismatch in recipe [{}] for user [{}]", multiRecipe.getName(), usernameOrEmail);
                     return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
                 }
                 ingredient.setId( 0L ); // preventing save collisions
@@ -118,14 +125,21 @@ public class OrderHistoryController {
                     orderDto );
             // checks for null
             if ( savedOrderHistoryDto == null ) {
+            	log.error("Order creation failed: Returned OrderHistoryDto is null for user [{}]", usernameOrEmail);
                 return new ResponseEntity<>( "Order history could not be created. Please check your input.",
                         HttpStatus.BAD_REQUEST );
             }
+            log.info("Order history created successfully: id={}, pickedUp={}, username={}, total={}",
+                    savedOrderHistoryDto.getId(),
+                    savedOrderHistoryDto.getPickedUp(),
+                    savedOrderHistoryDto.getUsername(),
+                    savedOrderHistoryDto.getTotal());
             return new ResponseEntity<>( savedOrderHistoryDto, HttpStatus.OK );
         }
         catch ( final IllegalArgumentException e ) {
             // catch if unable to make the history dto (invalid orderDto or
             // invalid username)
+        	log.error("Order creation failed: IllegalArgumentException for user [{}]: {}", usernameOrEmail, e.getMessage());
             return new ResponseEntity<>( orderDto, HttpStatus.BAD_REQUEST );
         }
 
@@ -146,9 +160,11 @@ public class OrderHistoryController {
             @RequestHeader ( "Authorization" ) final String token ) {
         final boolean updated = orderHistoryService.updateOrderHistoryStatus( id );
         if ( updated ) {
+        	log.info("OrderHistory: Order status updated to picked up: orderId={}", id);
             return new ResponseEntity<>( updated, HttpStatus.OK );
         }
         else {
+        	log.error("Failed to update order status: orderId={} may not exist or is already picked up", id);
             return new ResponseEntity<>( updated, HttpStatus.BAD_REQUEST );
         }
 

@@ -1,5 +1,9 @@
 package wolfcafe.controller;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import wolfcafe.dto.InventoryDto;
+import wolfcafe.entity.Ingredient;
 import wolfcafe.service.InventoryService;
 
 /**
@@ -23,6 +28,8 @@ import wolfcafe.service.InventoryService;
 @RestController
 @RequestMapping ( "/api/inventory" )
 public class InventoryController {
+	
+	private static final Logger log = LoggerFactory.getLogger(InventoryController.class);
 
     /**
      * Connection to inventory service for manipulating the Inventory model.
@@ -56,10 +63,31 @@ public class InventoryController {
         InventoryDto savedInventoryDto = new InventoryDto();
         try {
             savedInventoryDto = inventoryService.updateInventory( inventoryDto );
+            
         }
         catch ( final IllegalArgumentException e ) {
+        	log.warn("Failed to update inventory");
             return new ResponseEntity<>( inventoryDto, HttpStatus.UNSUPPORTED_MEDIA_TYPE );
         }
+        // makes log for inventory
+        List<Ingredient> updatedIngredients = savedInventoryDto.getIngredients();
+
+        StringBuilder inventoryLog = new StringBuilder();
+        
+        for (Ingredient ingredient : updatedIngredients) {
+            inventoryLog.append("Ingredient: ")
+                        .append(ingredient.getName())
+                        .append(", Amount: ")
+                        .append(ingredient.getAmount())
+                        .append(" | ");
+        }
+
+        // remove trailing " | "
+        if (inventoryLog.length() > 0) {
+            inventoryLog.setLength(inventoryLog.length() - 3);
+        }
+
+        log.info("Updated Inventory is: {}", inventoryLog.toString());
         return ResponseEntity.ok( savedInventoryDto );
     }
 
@@ -79,8 +107,28 @@ public class InventoryController {
             savedInventoryDto = inventoryService.createInventory( inventoryDto );
         }
         catch ( final IllegalArgumentException e ) {
+        	log.warn("Failed to create new inventory");
             return new ResponseEntity<>( inventoryDto, HttpStatus.UNSUPPORTED_MEDIA_TYPE );
         }
+        // makes log for inventory
+        List<Ingredient> updatedIngredients = savedInventoryDto.getIngredients();
+
+        StringBuilder inventoryLog = new StringBuilder();
+        
+        for (Ingredient ingredient : updatedIngredients) {
+            inventoryLog.append("Ingredient: ")
+                        .append(ingredient.getName())
+                        .append(", Amount: ")
+                        .append(ingredient.getAmount())
+                        .append(" | ");
+        }
+
+        // remove trailing " | "
+        if (inventoryLog.length() > 0) {
+            inventoryLog.setLength(inventoryLog.length() - 3);
+        }
+
+        log.info("Updated Inventory is: {}", inventoryLog.toString());
         return ResponseEntity.ok( savedInventoryDto );
     }
 
