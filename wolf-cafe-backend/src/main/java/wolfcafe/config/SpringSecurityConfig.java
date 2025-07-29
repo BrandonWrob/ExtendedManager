@@ -53,17 +53,21 @@ public class SpringSecurityConfig {
      */
     @Bean
     public SecurityFilterChain securityFilterChain ( final HttpSecurity http ) throws Exception {
-        http.csrf( ( csrf ) -> csrf.disable() ).authorizeHttpRequests( ( authorize ) -> {
-            authorize.requestMatchers( "/api/auth/**" ).permitAll();
-            authorize.requestMatchers( HttpMethod.OPTIONS, "/**" ).permitAll(); // allows
-                                                                                // preflight
-                                                                                // requests
-            authorize.anyRequest().authenticated();
-        } ).httpBasic( Customizer.withDefaults() );
+        http.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(authorize -> {
+                authorize
+                    .requestMatchers("/api/auth/**").permitAll()
+                    .requestMatchers("/api/log-test").permitAll()
+                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    .anyRequest().authenticated();
+            })
+            .httpBasic(Customizer.withDefaults());
 
-        http.exceptionHandling( exception -> exception.authenticationEntryPoint( authenticationEntryPoint ) );
+        http.exceptionHandling(exception -> 
+            exception.authenticationEntryPoint(authenticationEntryPoint)
+        );
 
-        http.addFilterBefore( authenticationFilter, UsernamePasswordAuthenticationFilter.class );
+        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

@@ -5,6 +5,8 @@ package wolfcafe.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,8 @@ import wolfcafe.service.IngredientService;
 @RestController
 @RequestMapping ( "/api/ingredients" )
 public class IngredientController {
+	
+	private static final Logger log = LoggerFactory.getLogger(IngredientController.class);
 
     /**
      * Connection to ingredient service for manipulating the Ingredient model.
@@ -44,20 +48,23 @@ public class IngredientController {
     @PostMapping
     public ResponseEntity<IngredientDto> createIngredient ( @RequestBody final IngredientDto ingredientDto ) {
         if ( ingredientDto.getAmount() < 0 ) {
+        	log.warn("Rejected ingredient creation due to negative amount: {}", ingredientDto.getAmount());
             return new ResponseEntity<>( HttpStatus.UNSUPPORTED_MEDIA_TYPE );
         }
         final List<IngredientDto> allIngredients = ingredientService.getAllIngredients();
         for ( final IngredientDto i : allIngredients ) {
             if ( i.getName().equals( ingredientDto.getName() ) ) {
+            	log.warn("Rejected ingredient creation due to conflict: ingredient with name '{}' already exists", i.getName());
                 return new ResponseEntity<>( HttpStatus.CONFLICT );
             }
         }
         final IngredientDto savedIngredientDto = ingredientService.createIngredient( ingredientDto );
+        log.info("Ingredient created successfully: {}", savedIngredientDto.getName());
         return ResponseEntity.ok( savedIngredientDto );
     }
 
     /**
-     * REST API method to provide GET access to a specific ingredient, as
+     * REST API method to provide  GET access to a specific ingredient, as
      * indicated by the path variable provided (the name of the ingredient
      * desired).
      *

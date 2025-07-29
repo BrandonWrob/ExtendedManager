@@ -3,6 +3,8 @@ package wolfcafe.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,8 @@ import wolfcafe.service.RecipeService;
 @RestController
 @RequestMapping ( "/api/orders" )
 public class OrderController {
+	
+	private static final Logger log = LoggerFactory.getLogger(OrderController.class);
 
     /** reference to AuthService */
     @Autowired
@@ -61,6 +65,7 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<OrderDto> makeOrder ( @RequestHeader ( "Authorization" ) final String token,
             @RequestBody final OrderDto orderDto ) {
+    	
         final String username = authService.getUsername( token.substring( 7 ) );
 
         // preventing save collisions
@@ -74,6 +79,7 @@ public class OrderController {
 
         // check for recipes being invalid
         if ( null == orderDto.getRecipes() || 0 == orderDto.getRecipes().size() ) {
+        	log.warn("Can't make order: Orders must have at least one recipe.");
             return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
         }
 
@@ -95,6 +101,7 @@ public class OrderController {
             }
             // catch recipe name doesn't exist
             catch ( final Exception e ) {
+            	log.warn("Can't make order: Unable to find recipe.");
                 return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
             }
             multiRecipe.setId( 0L ); // preventing save collisions
@@ -104,6 +111,7 @@ public class OrderController {
             if ( null == multiRecipe.getAmount() || null == multiRecipe.getIngredients()
                     || realRecipe.getIngredients().size() != multiRecipe.getIngredients().size()
                     || !realRecipe.getPrice().equals( multiRecipe.getPrice() ) || multiRecipe.getAmount() <= 0 ) {
+            	log.warn("Can't make order: Do not have enough ingredients, or did not pay correct price.");
                 return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
             }
 
@@ -113,21 +121,35 @@ public class OrderController {
                 final Ingredient ingredient = multiRecipe.getIngredients().get( i );
                 final Ingredient realIngredient = realRecipe.getIngredients().get( i );
 
-                // check if ingredient price or name is bad
+                // check if ingredient amount or name is bad
                 if ( !realIngredient.getName().equals( ingredient.getName() )
                         || !realIngredient.getAmount().equals( ingredient.getAmount() ) ) {
+                	log.warn("Can't make order: invalid ingredient amount or name.");
                     return new ResponseEntity<>( orderDto, HttpStatus.NOT_FOUND );
                 }
                 ingredient.setId( 0L ); // preventing save collisions
             }
         }
         try {
-            // try to make the recipe
+            // try to make the order
             final OrderDto savedOrderDto = orderService.makeOrder( username, orderDto );
+            // creates log data
+            List<MultiRecipe> recipesInOrder = savedOrderDto.getRecipes();
+            StringBuilder order = new StringBuilder();
+            for (MultiRecipe multiRecipe : recipesInOrder) {
+                order.append("Recipe: ")
+                     .append(multiRecipe.getName())
+                     .append(", Amount: ")
+                     .append(multiRecipe.getAmount())
+                     .append(" | ");
+            }
+            order.append("Order Id: ").append(savedOrderDto.getId());
+            log.info("Order Made: {}", order.toString());
             return new ResponseEntity<>( savedOrderDto, HttpStatus.OK );
         }
         catch ( final IllegalArgumentException e ) {
             // catch for not enough ingredients
+        	log.warn("Can't make order: invalid ingredient amount or name.");
             return new ResponseEntity<>( orderDto, HttpStatus.BAD_REQUEST );
         }
 
@@ -164,19 +186,24 @@ public class OrderController {
     @PreAuthorize ( "hasAnyRole('STAFF', 'MANAGER', 'ADMIN')" )
     @PutMapping ( "{id}" )
     public ResponseEntity<OrderDto> fulfillOrder ( @PathVariable final Long id ) {
+    	OrderDto fulfilledOrder = new OrderDto();
         try {
             // try to fulfill
-            return new ResponseEntity<>( orderService.fulfillOrder( id ), HttpStatus.OK );
+        	fulfilledOrder = orderService.fulfillOrder( id );
+            
         }
         catch ( final ResourceNotFoundException e ) {
             // order with id was not found
+        	log.warn("Cannot fulfill: Order not found");
             return new ResponseEntity<>( null, HttpStatus.GONE );
         }
         catch ( final IllegalStateException e ) {
             // order was already fulfilled
+        	log.warn("Cannot fulfill: Order already fulfilled");
             return new ResponseEntity<>( null, HttpStatus.CONFLICT );
         }
-
+        log.info("Order Fulfilled for ID: {}", fulfilledOrder.getId());
+        return new ResponseEntity<>( fulfilledOrder, HttpStatus.OK );
     }
 
     /**
@@ -221,12 +248,13 @@ public class OrderController {
         try {
             // try to pickup
             final OrderDto orderDto = orderService.pickupOrder( username, id );
-
+            log.info("Successfully picked up order: {}", id);
             // pickup success
             return new ResponseEntity<>( orderDto, HttpStatus.OK );
         }
         catch ( final WolfCafeAPIException e ) {
             // pickup failed
+        	log.warn("Failed to pick up order with ID: {} " + id);
             return new ResponseEntity<>( null, e.getStatus() );
         }
     }

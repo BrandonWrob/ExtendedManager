@@ -99,6 +99,7 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
 10. Run the project by right clicking on the project application (WolfCafeApplication.java) and selecting Run As > Java Application. 
     
 ## Eclipse AWS Setup
+[Note: AWS sometimes automatically changes your region, if this occurs then change it back to the prior reigion in env variables, or update env variable to new region]
 1. Create a AWS Account and generate a AWS Secret Access Key
 2. Store the key locally in environment variables
    - Linux/macOS: Type the following commands with key values
@@ -113,7 +114,8 @@ Follow the [instructions for setting up Lombok in Eclipse](https://projectlombok
         * Name: AWS_ACCESS_KEY_ID, Value: your key
         * Name: AWS_SECRET_ACCESS_KEY, Value: your secret
         * Name: AWS_REGION, Value: your region 
-4. Run the JUnit test by right-clicking src/test/java > Run as > Junit Test, it should pass all test since you should have all backend components set up by now.
+4.Now we will setup Cloudwatch in AWS to monitor the logs, to do this search for Cloudwatch in services and under Logs create a log group named SpringBootLogs with a stream named LocalStream. Note it is vital the naming convention matches the CloudWatcherAppender. 
+5. Run the JUnit test by right-clicking src/test/java > Run as > Junit Test, it should pass all test since you should have all backend components set up by now. The important ones to note for this portion is that AwsCredentialsIntegrationTest passes (means you set up env variables right and can connect to AWS) and LogsTest pass. NOTE: LogsTest reqyures you to check both that it is able to send the logs to AWS and also within the cloudwatch feature to make sure it gets it, a wrong setup scheme can have the test pass, but it not reach the correct destination. 
 
 ## Eclipse Frontend Setup
 1. Verify the backend is running (step 9 of backend setup)
