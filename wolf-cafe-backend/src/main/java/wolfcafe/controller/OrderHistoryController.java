@@ -83,7 +83,10 @@ public class OrderHistoryController {
         }
 
         for ( final MultiRecipe multiRecipe : orderDto.getRecipes() ) {
-
+        	if (multiRecipe == null) {
+                log.error("Order creation failed: Null recipe provided by user [{}]", usernameOrEmail);
+                return new ResponseEntity<>(orderDto, HttpStatus.NOT_FOUND);
+            }
             RecipeDto realRecipe;
             try {
                 realRecipe = recipeService.getRecipeByName( multiRecipe.getName() );

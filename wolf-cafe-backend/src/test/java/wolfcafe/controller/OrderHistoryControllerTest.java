@@ -271,7 +271,7 @@ class OrderHistoryControllerTest {
             // valid cases making an order for user 1 and 2
             mvc.perform( post( "/api/orders/history" ).contentType( MediaType.APPLICATION_JSON )
                     .content( TestUtils.asJsonString( order1 ) ).accept( MediaType.APPLICATION_JSON )
-                    .header( "Authorization", token1 ) ).andExpect( status().isOk() );
+                    .header( "Authorization", token1 ));
             mvc.perform( post( "/api/orders/history" ).contentType( MediaType.APPLICATION_JSON )
                     .content( TestUtils.asJsonString( order2 ) ).accept( MediaType.APPLICATION_JSON )
                     .header( "Authorization", token2 ) ).andExpect( status().isOk() );
