@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import wolfcafe.entity.Ingredient;
 import wolfcafe.entity.Inventory;
@@ -21,6 +22,7 @@ import jakarta.persistence.EntityManager;
  * Tests InventoryRepository. Uses the real database - not an embedded one.
  */
 @DataJpaTest
+@ActiveProfiles("localtest")
 @AutoConfigureTestDatabase ( replace = Replace.NONE )
 public class InventoryRepositoryTest {
 

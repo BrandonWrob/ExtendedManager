@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
@@ -13,6 +14,7 @@ import software.amazon.awssdk.services.sts.model.GetCallerIdentityRequest;
 /**
  * test that it connects to Springboot successfully 
  */
+@ActiveProfiles("localtest")
 @SpringBootTest
 public class AwsCredentialsIntegrationTest {
 

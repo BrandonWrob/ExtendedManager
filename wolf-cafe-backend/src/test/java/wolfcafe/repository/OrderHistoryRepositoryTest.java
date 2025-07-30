@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import wolfcafe.entity.OrderHistory;
@@ -20,6 +21,7 @@ import wolfcafe.entity.OrderHistory;
  * tests OrderHistoryRepository
  */
 @DataJpaTest
+@ActiveProfiles("localtest")
 @AutoConfigureTestDatabase ( replace = Replace.NONE )
 public class OrderHistoryRepositoryTest {
 
