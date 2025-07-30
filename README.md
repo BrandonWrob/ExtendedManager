@@ -16,21 +16,21 @@
 
 # Project Overview
 
-A full-stack store management web application with role-based access control (Customers, Staff, Managers, Admins). I originally developed this project as part of a small team using Agile-Scrum methodologies, including sprint planning, biweekly stand-ups, and detailed documentation (Javadocs, UML diagrams, and system tests). I’m now continuing to expand the project alongside other peers who are using it as a foundation to explore new frameworks, add functionality, and enhance the system’s overall capabilities. 
+A full-stack store management application with database management, automated testing, role-based features, built-in security, and a user friendly interface. I originally developed this project as part of a small team using Agile-Scrum methodologies, including sprint planning, biweekly stand-ups, and detailed documentation (Javadocs, UML diagrams, and system tests). I’m now continuing to expand the project alongside other peers who are using it as a foundation to explore new frameworks, add functionality, and enhance the system’s overall capabilities. 
 
 🔧 Features
 - 🔐 Secure login with JWT authentication & role-based access (Customers, Staff, Managers, Admins)
 - 👥 Role-based access with custom features and UI for Customers, Staff, Managers, and Admins
 - 🧾 User, Inventory, Ingredient, Recipe, History, and Order Management Features
-- 🧪 90%+ automated test coverage with JUnit and Jest
+- 🧪 Reliable performance with 90%+ automated test coverage (JUnit & Jest)
 - 📊 Manager analytics dashboard (in progress)
-
+  
 🧰 Tech Stack
-Backend: Java, Spring Boot (REST, JWT), JUnit
-Frontend: Javascript, React, Jest
-Build: Maven, npm
-Database: MySQL (Automated Testing), Amazon Aurora (Application) 
-Logs: AWS CloudWatch
+- ☕ Backend: Java, Spring Boot (REST, JWT), JUnit
+- ⚛️ Frontend: JavaScript, React, Jest
+- 🛠️ Build: Maven, Node.js, npm
+- 📈 Database: MySQL (Automated Testing), Amazon Aurora (Application)
+- 🗄️ Logs: AWS CloudWatch
 
 Ongoing development includes enhanced analytics for managers and deeper AWS cloud service integration.
 
@@ -121,7 +121,7 @@ IAMReadOnlyAccess
      -  give them a name and access to AWS Management Console and select Create an IAM User
      -  In Setpermissions, asign them to the User Group you just made > Now you can freely create the user
      -  Final step is to login to the new account you made for the upcoming steps!
-5. Click your AWS Profile ? Security Credentials > Create Access Key > Local code 
+5. Click your AWS Profile > Security Credentials > Create Access Key > Local code 
 6. Store the access key locally in environment variables
    - Linux/macOS: Type the following commands with key values
        * export AWS_ACCESS_KEY_ID=your_access_key_here
