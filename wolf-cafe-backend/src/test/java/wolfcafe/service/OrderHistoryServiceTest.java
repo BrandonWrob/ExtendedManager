@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import wolfcafe.dto.IngredientDto;
 import wolfcafe.dto.OrderDto;
@@ -35,6 +36,7 @@ import jakarta.transaction.Transactional;
  * tests OrderService
  */
 @SpringBootTest
+@ActiveProfiles("localtest")
 class OrderHistoryServiceTest {
     /** Reference to EntityManager */
     @Autowired
@@ -181,7 +183,8 @@ class OrderHistoryServiceTest {
 
         userRepository.save( user1 );
         userRepository.save( user2 );
-
+        entityManager.flush();
+        assertTrue(userRepository.findByUsername("user1").isPresent(), "User1 not found in DB before placing order.");
         orderService.makeOrder( user1.getUsername(), order1 );
 
         final List<Ingredient> ingredients = inventoryService.getInventory().getIngredients();

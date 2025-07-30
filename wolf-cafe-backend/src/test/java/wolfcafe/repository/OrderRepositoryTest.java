@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import wolfcafe.entity.Ingredient;
@@ -23,6 +24,7 @@ import wolfcafe.entity.Order;
  * tests OrderRepository
  */
 @DataJpaTest
+@ActiveProfiles("localtest")
 @AutoConfigureTestDatabase ( replace = Replace.NONE )
 class OrderRepositoryTest {
 
