@@ -34,6 +34,7 @@ A full-stack store management application with database management, automated te
 
 Ongoing development includes enhanced analytics for managers and deeper AWS cloud service integration.
 
+[Note]: The cloud features are optional, if you would not like to spend money using the services then you can disable them by setting the spring.profile.active to localtest which will disable application from using AWS features. 
 
 # Backend Design
 - Note: Files for designs can be found under the Diagram folder.
