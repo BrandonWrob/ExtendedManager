@@ -44,6 +44,10 @@ public void placeOrder(String userId) {
 Since all login utilizes the same functionality as the test case here, if the logs work for it then you are set!
  */
 public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
+	
+	// verifies cloud is enabled or not (incase you want to run locally fully to save money)
+	private boolean cloudWatchEnabled = "cloud".equalsIgnoreCase(System.getenv("SPRING_PROFILES_ACTIVE"));
+
 
 	/** AWS CloudWatch Logs client instance */
     private CloudWatchLogsClient cloudWatchLogsClient;
@@ -65,6 +69,7 @@ public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
      */
     @Override
     public void start() {
+    	if (!cloudWatchEnabled) return;
         cloudWatchLogsClient = CloudWatchLogsClient.builder()
             .region(Region.of(region))
             .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
@@ -81,6 +86,7 @@ public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
      */
     @Override
     protected void append(ILoggingEvent event) {
+    	if (!cloudWatchEnabled) return;
     	System.out.println("📤 Logging to CloudWatch: " + event.getFormattedMessage());
         try {
             InputLogEvent logEvent = InputLogEvent.builder()
@@ -109,6 +115,7 @@ public class CloudWatchAppender extends AppenderBase<ILoggingEvent> {
      * Also retrieves the current upload sequence token for the stream.
      */
     private void ensureLogGroupAndStreamExist() {
+    	if (!cloudWatchEnabled) return;
         try {
             cloudWatchLogsClient.createLogGroup(CreateLogGroupRequest.builder()
                 .logGroupName(logGroupName)
