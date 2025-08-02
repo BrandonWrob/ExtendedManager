@@ -134,6 +134,15 @@ const HeaderComponent = () => {
                                         </li>
                                     </>
                                 )}
+								{isAuth && (isAdmin || isManager) && (
+								                                    <>
+								                                        <li className="nav-item">
+								                                            <NavLink to="/create-account" className="nav-link" onClick={closeDropdown}>
+								                                                Data Analytics
+								                                            </NavLink>
+								                                        </li>
+								                                    </>
+								                                )}
                             </ul>
                             <ul className="navbar-nav ms-auto">
                                 <li className="nav-item me-3">

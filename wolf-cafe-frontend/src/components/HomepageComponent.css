@@ -1,0 +1,222 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fullscreen layout with vertical spacing */
+.homepage-container {
+    background-color: #f5e1d2;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Title at top */
+.homepage-title {
+    font-size: 3.5rem;
+    margin: 0 0 40px 0;
+    color: #4b2e2e;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 50px;
+}
+
+
+
+.hero-background {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.carousel-overlay-advanced {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.carousel-main {
+    width: 300px; 
+    height: 300px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-preview {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-preview:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+
+.carousel-image {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-arrow.absolute {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 6rem; /* Bigger font size for larger arrows */
+    color: black;
+    background:tan;
+    border: none;
+    padding: 16px 30px; /* Larger clickable area */
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-arrow.absolute.left {
+    left: -50px; /* Adjust if needed */
+}
+
+.carousel-arrow.absolute.right {
+    right: -50px;
+}
+
+.carousel-arrow.absolute:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+.hero-background {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Bigger button with spacing */
+.order-button {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 40px;
+    font-size: 2.6rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
+}
+
+
+
+.order-button:hover {
+    background-color: #333;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* exactly 2 columns */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* stack cards on small screens */
+    }
+
+    .feature-card {
+        flex-direction: column !important; /* stack text/image vertically */
+        text-align: center;
+    }
+
+    .feature-card.reverse {
+        flex-direction: column !important;
+    }
+
+    .feature-image img {
+        max-height: 250px;
+    }
+    
+	.carousel-overlay-advanced {
+    	flex-direction: column;
+	}
+	
+	.carousel-preview {
+    	width: 80px;
+    	margin: 10px 0;
+	}
+
+}
+
+
+/* Each card is still flex with text + image side-by-side */
+.feature-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+}
+
+.feature-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+    min-width: 150px;
+}
+
+.feature-text h3 {
+    font-size: 1.5rem;
+    color: #4b2e2e;
+    margin-bottom: 10px;
+}
+
+.feature-text p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.feature-image {
+    flex: 1;
+}
+
+.feature-image img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
