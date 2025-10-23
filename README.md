@@ -12,6 +12,7 @@
   - [Environment Setup](#environment-setup)
   - [Eclipse Backend Setup](#eclipse-backend-setup)
   - [Eclipse Frontend Setup](#eclipse-frontend-setup)
+  - [Jenkins Setup](#eclipse-frontend-setup)
 - [Contributors](#contributors)
 
 # Project Overview
@@ -182,6 +183,29 @@ Import project into Eclipse
 4. Create the node_modules directory by typing the following in the terminal: % npm install
 7. Run the frontend by typing into the terminal: %npm run dev
 8. View in browser by typing: http://localhost:3000
+
+## Jenkins Setup
+1. Download the stable release of Jenkins at https://www.jenkins.io/download/
+2. Go to file with the download and run java -jar jenkins.war
+3. Your jenkins will be located at http://localhost:8080/login?from=%2F
+4. Input the password in terminal when you ran Jenkins
+5. Click install suggested plugins
+6. Setup Admin User
+7. Set Jenkins URL to http://localhost:8080/
+8. Go to Manage Jenkins → Credentials → System → Global credentials → Add Credentials
+9. Put your github username for username, for password put your Personal Access Token, steps to make a token below
+    - Github -> Profile Pic -> Settings -> Developer Settings -> Personal Access Tokens -> Tokens (Classic)
+    - Click Generate new token
+    - Set a expiration of how long you would like it to be useable for
+    - Give it arepo:public_repo since it is public, it is all that is needed
+11. Put github-token for the id
+12. GO to Jenkins home page, click New Item, and enter a name for the project, "ExtendedManager-Build1", and select Pipeline
+13. Scroll down and click Definition dorpdown and select Pipeline script from SCM option, then select git for SCM
+14. Paste github URL for project in Repo URL, and in credentials, add the one we made in step 8-11, for branch put */main
+15. 
+
+Enter your GitHub username and token
+10. 
 
 # Contributors
 - The project is currently being ran by Brandon Wroblewski (BrandonWrob) and Andrew Anufryienak
