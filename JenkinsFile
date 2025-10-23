@@ -1,9 +1,41 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.9.6-eclipse-temurin-17'  // Java + Maven image
+            args '-v /var/run/docker.sock:/var/run/docker.sock'  // allows spinning up other containers
+        }
+    }
+    environment {
+        DB_HOST = 'localhost'
+        DB_USER = 'root'
+        DB_PASS = 'password'
+        DB_NAME = 'testdb'
+    }
     stages {
-        stage('Test Connection') {
+        stage('Start MySQL') {
             steps {
-                echo 'Jenkinsfile found successfully!'
+                script {
+                    // Start MySQL container
+                    sh '''
+                    docker run -d --name mysql-test \
+                        -e MYSQL_ROOT_PASSWORD=${DB_PASS} \
+                        -e MYSQL_DATABASE=${DB_NAME} \
+                        -p 3306:3306 \
+                        mysql:8.0
+                    '''
+                    // Wait for MySQL to be ready
+                    sleep 20
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'mvn test -Dspring.datasource.url=jdbc:mysql://${DB_HOST}:3306/${DB_NAME} -Dspring.datasource.username=${DB_USER} -Dspring.datasource.password=${DB_PASS}'
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh 'docker rm -f mysql-test || true'
             }
         }
     }
