@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test Connection') {
+            steps {
+                echo 'Jenkinsfile found successfully!'
+            }
+        }
+    }
+}
