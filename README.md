@@ -202,7 +202,14 @@ Import project into Eclipse
 12. GO to Jenkins home page, click New Item, and enter a name for the project, "ExtendedManager-Build1", and select Pipeline
 13. Scroll down and click Definition dorpdown and select Pipeline script from SCM option, then select git for SCM
 14. Paste github URL for project in Repo URL, and in credentials, add the one we made in step 8-11, for branch put */main
-15. 
+15. The script for Jenkins to run is already in main in JenkinsFlle, all you need to do is set up your local environment variables with your MySQL root pass and DB name, and run docker locally
+16. Once the above are setup, you can automatically run the build through jenkins 
+17. ddocker run -d --name mysql-test \
+                        -e MYSQL_ROOT_PASSWORD=${DB_PASS} \
+                        -e MYSQL_DATABASE=${DB_NAME} \
+                        -p 3306:3306 \
+                        mysql:8.0
+                    '''
 
 Enter your GitHub username and token
 10. 
