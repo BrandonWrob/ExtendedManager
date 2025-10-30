@@ -23,7 +23,7 @@ A full-stack store management application with database management, automated te
 - 🔐 Secure login with JWT authentication & role-based access (Customers, Staff, Managers, Admins)
 - 👥 Role-based access with custom features and UI for Customers, Staff, Managers, and Admins
 - 🧾 User, Inventory, Ingredient, Recipe, History, and Order Management Features
-- 🧪 Reliable performance with 90%+ automated test coverage (JUnit & Jest)
+- 🧪 90%+ automated test coverage (JUnit, Jest) through a Jenkins CI/CD pipeline.
 - 📊 Manager analytics dashboard (in progress)
   
 🧰 Tech Stack
