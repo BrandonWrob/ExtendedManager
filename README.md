@@ -1,4 +1,4 @@
-# ExtendedManager
+# Inventory and Staff Management Platform
 
 ### 📑 Table of Contents
 - [Project Overview](#project-overview)
